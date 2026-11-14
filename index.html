@@ -68,10 +68,9 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--car);outline-offset
 .hl{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:28px}
 .card{background:var(--card);border:1px solid var(--rule);border-radius:18px;padding:20px;display:flex;flex-direction:column;gap:10px;text-decoration:none;color:var(--ink);transition:transform .15s,border-color .15s}
 a.card:hover{transform:translateY(-3px);border-color:var(--car)}
-.card .ph{position:relative;margin:-20px -20px 6px;aspect-ratio:16/9;background:#0b0d10;display:grid;place-items:center;overflow:hidden;border-radius:17px 17px 0 0}
-.card .ph img{width:100%;height:100%;object-fit:contain;padding:12px;transition:transform .25s}
-a.card:hover .ph img{transform:scale(1.04)}
-.card .ph figcaption{position:absolute;right:8px;bottom:6px;font-size:11.5px;line-height:1.5;color:rgba(255,255,255,.8);background:rgba(0,0,0,.6);padding:0 6px;border-radius:4px}
+.card .ph{display:flex;align-items:center;gap:12px;margin:0 0 4px}
+.card .ph img{width:128px;height:64px;object-fit:contain;background:var(--zone);border:1px solid var(--rule);border-radius:10px;padding:5px}
+.card .ph figcaption{font-size:12px;line-height:1.4;color:var(--mut)}
 .card .big{font:600 clamp(34px,3.6vw,44px)/1 Literata,Georgia,serif;letter-spacing:-.03em;color:var(--car)}
 .card .big small{font-size:.5em;margin-left:4px;color:var(--ink)}
 .card .what{font-weight:600;font-size:15.5px;line-height:1.35}
@@ -140,7 +139,7 @@ footer{padding:20px max(5vw,16px);font-size:14px;color:var(--mut)}
 @media(max-width:1000px){.hl,.grid4,.dies{grid-template-columns:repeat(2,minmax(0,1fr))}.news{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:820px){.hero,.cols,.contact .grid{grid-template-columns:minmax(0,1fr)}}
 @media(max-width:600px){.who{flex-direction:column;align-items:flex-start;gap:16px}.hl,.grid4{grid-template-columns:minmax(0,1fr)}.dies{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.die{padding:12px}.fig{height:640px}.pub{grid-template-columns:minmax(0,1fr)}.tl{height:430px}nav .links{gap:0 14px}nav .links a{font-size:14px}nav .links a.opt{display:none}.news{grid-template-columns:minmax(0,1fr)}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.bar{animation:none!important}.card,.stat,.card .ph img{transition:none}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.bar{animation:none!important}.card,.stat{transition:none}}
 @keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
 .bar{transform-box:fill-box;transform-origin:left center;animation:grow .7s ease-out both}
 </style>
@@ -191,25 +190,25 @@ footer{padding:20px max(5vw,16px);font-size:14px;color:var(--mut)}
     <p class="sub">Four first-author results, each shown with its die photo. Click a card to open the paper.</p>
     <div class="hl">
       <a class="card" href="https://doi.org/10.1109/IMS40360.2025.11103820">
-        <figure class="ph"><img src="img/die/ims25-lna.jpg" alt="Die photo of the 8–12.2 GHz CMOS LNA" width="1000" height="521"><figcaption>© 2025 IEEE</figcaption></figure>
+        <figure class="ph"><img src="img/die/ims25-lna.jpg" alt="Die photo of the 8–12.2 GHz CMOS LNA"><figcaption>Die photo<br>© 2025 IEEE</figcaption></figure>
         <span class="big">1.8<small>dB</small></span>
         <span class="what">Average noise figure, 8–12.2 GHz CMOS LNA with a partially tail-coupled transformer</span>
         <span class="ven"><b>First author</b> · IMS 2025, extended in TCAS-II</span>
       </a>
       <a class="card" href="https://doi.org/10.1109/RFIC70222.2026.11602222">
-        <figure class="ph"><img src="img/die/rfic26-lna.jpg" alt="Die photo of the 10–19.2 GHz FR3 LNA" width="1000" height="502"><figcaption>© 2026 IEEE</figcaption></figure>
+        <figure class="ph"><img src="img/die/rfic26-lna.jpg" alt="Die photo of the 10–19.2 GHz FR3 LNA"><figcaption>Die photo<br>© 2026 IEEE</figcaption></figure>
         <span class="big">−2.4<small>dBm</small></span>
         <span class="what">Peak IP1dB of a 10–19.2 GHz LNA for 6G FR3 (−5.3 to −2.4 dBm across the band)</span>
         <span class="ven"><b>First author</b> · RFIC 2026</span>
       </a>
       <a class="card" href="https://doi.org/10.1109/APMC65046.2025.11378707">
-        <figure class="ph"><img src="img/die/apmc25-lna.jpg" alt="Die photo of the 21.5–35.5 GHz LNA with 180° phase shifting" width="623" height="403"><figcaption>© 2025 IEEE</figcaption></figure>
+        <figure class="ph"><img src="img/die/apmc25-lna.jpg" alt="Die photo of the 21.5–35.5 GHz LNA with 180° phase shifting"><figcaption>Die photo<br>© 2025 IEEE</figcaption></figure>
         <span class="big">180°</span>
         <span class="what">Phase shift built into a 21.5–35.5 GHz CMOS LNA through a partially coupled transformer</span>
         <span class="ven"><b>First author</b> · APMC 2025</span>
       </a>
       <a class="card" href="https://doi.org/10.1109/LMWT.2025.3589587">
-        <figure class="ph"><img src="img/die/mwtl25-atten.jpg" alt="Die photo of the 6-bit CMOS attenuator" width="1000" height="399"><figcaption>© 2025 IEEE</figcaption></figure>
+        <figure class="ph"><img src="img/die/mwtl25-atten.jpg" alt="Die photo of the 6-bit CMOS attenuator"><figcaption>Die photo<br>© 2025 IEEE</figcaption></figure>
         <span class="big">6<small>bit</small></span>
         <span class="what">CMOS attenuator with low phase variation using a capacitive π-bridge</span>
         <span class="ven"><b>First author</b> · MWTL 2025</span>
