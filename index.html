@@ -4,127 +4,140 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Min-Seok Baek</title>
-<meta name="description" content="Min-Seok Baek — RF and millimeter-wave IC designer, Ph.D. student at Chungnam National University.">
+<meta name="description" content="Min-Seok Baek, RF and millimeter-wave IC designer and Ph.D. student at Chungnam National University. LNAs, PAs and phased-array beamformers from 5 GHz to 150 GHz.">
+<meta property="og:title" content="Min-Seok Baek — RF and mm-wave IC design">
+<meta property="og:description" content="LNAs, PAs and phased-array beamformers from 5 GHz to 150 GHz. Ph.D. student, Chungnam National University.">
+<meta property="og:image" content="https://minseok-baek.github.io/img/profile.jpg">
+<meta property="og:url" content="https://minseok-baek.github.io/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Ccircle cx='20' cy='20' r='18' fill='white' stroke='%2310131a' stroke-width='2.5'/%3E%3Cline x1='2' y1='20' x2='38' y2='20' stroke='%2310131a' stroke-width='2'/%3E%3Ccircle cx='26' cy='20' r='12' fill='none' stroke='%23c1121f' stroke-width='2.5'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Literata:opsz,wght@7..72,400;7..72,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Literata:opsz,wght@7..72,500;7..72,600&display=swap" rel="stylesheet">
 <style>
-/* VOICE personal academic page, calm and exact, for professors and RFIC hiring managers
-   IDEA printed Smith-chart paper: white sheet, carmine and prussian inks, fine rules
-   PICTURE his published circuits as ranges on a log frequency axis, 4 to 180 GHz, over IEEE band zones
-   COLOUR white ground, ink #10131a, carmine #c1121f for his circuits, prussian #0b4f8a for links; night #0f1217
-   TYPE Literata 600 for names and titles, Inter for body, labels and the chart
-   LAYOUT laptop: name and lede left, figures right, chart full width beneath; phone: name, chart, figures, links */
-:root{color-scheme:light dark;--bg:light-dark(#ffffff,#0f1217);--ink:light-dark(#10131a,#e9ebf1);--mut:light-dark(#4b5263,#a4aaba);--rule:light-dark(#e1e4ea,#262b35);--car:light-dark(#c1121f,#ff6b6f);--pru:light-dark(#0b4f8a,#79b8ff);--zone:light-dark(#f3f5f8,#151a22);--tint:light-dark(#fbeef0,#2a1517);--band:light-dark(#0b4f8a,#0c2f52)}
+/* VOICE friendly and exact: a visitor gets who, what and the best results in ten seconds
+   IDEA an RF engineer's chip gallery on Smith-chart paper: die tiles, schematic icons, a frequency map
+   PICTURE highlight cards with big figures, an interactive frequency map, chip dies drawn with pad rings, a career timeline
+   COLOUR white ground, ink #10131a, carmine #c1121f for published work, prussian #0b4f8a for chips and links; night #0f1217
+   TYPE Literata 600 for names and big figures, Inter for everything else
+   LAYOUT laptop: photo and name left, four counters right, news strip beneath; each section one visual; phone: single column */
+:root{color-scheme:light dark;--bg:light-dark(#ffffff,#0f1217);--ink:light-dark(#10131a,#e9ebf1);--mut:light-dark(#4b5263,#a4aaba);--rule:light-dark(#e3e6ec,#262b35);--car:light-dark(#c1121f,#ff6b6f);--pru:light-dark(#0b4f8a,#79b8ff);--zone:light-dark(#f4f6f9,#161b23);--card:light-dark(#ffffff,#141920);--tint:light-dark(#fcecee,#2b1518);--ptint:light-dark(#e8f0f8,#122335);--pad:light-dark(#d9a441,#c9973b);--band:light-dark(#0b4f8a,#0c2f52)}
 :root[data-theme=light]{color-scheme:light}
 :root[data-theme=dark]{color-scheme:dark}
 *{box-sizing:border-box;min-width:0}
-html{scroll-behavior:smooth;scroll-padding-top:72px}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Inter,system-ui,-apple-system,"Segoe UI",sans-serif;overflow-x:clip}
 a{color:var(--pru);text-underline-offset:3px}
-h1,h2,h3{font-family:Literata,Georgia,serif;font-weight:600;letter-spacing:-.02em;line-height:1.08;margin:0;text-wrap:balance}
+h1,h2,h3{font-family:Literata,Georgia,serif;font-weight:600;letter-spacing:-.02em;line-height:1.1;margin:0;text-wrap:balance}
 h2{font-size:clamp(28px,3.4vw,40px)}
-h3{font-size:20px;line-height:1.25}
+h3{font-size:19px;line-height:1.3}
 p{margin:0}
-.wrap{max-width:1240px;margin:0 auto}
-.band{padding-block:clamp(36px,5vw,72px);padding-left:max(5vw,16px,env(safe-area-inset-left,0px));padding-right:max(5vw,16px,env(safe-area-inset-right,0px))}
-.rule{border-top:1px solid var(--rule)}
-nav{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule);padding:10px max(5vw,16px)}
-nav .wrap{display:flex;align-items:center;gap:8px 20px;flex-wrap:wrap}
-.mark{display:flex;align-items:center;gap:10px;font-family:Literata,Georgia,serif;font-weight:600;font-size:18px;color:var(--ink);text-decoration:none;margin-right:auto}
-.mark svg{width:30px;height:30px}
-nav .links{display:flex;flex-wrap:wrap;gap:2px 16px}
+.wrap{max-width:1200px;margin:0 auto}
+.band{padding-block:clamp(40px,5vw,72px);padding-left:max(5vw,16px,env(safe-area-inset-left,0px));padding-right:max(5vw,16px,env(safe-area-inset-right,0px))}
+.alt{background:var(--zone)}
+.sub{margin-top:8px;color:var(--mut);font-size:16px;max-width:66ch}
+nav{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule);padding:8px max(5vw,16px)}
+nav .wrap{display:flex;align-items:center;gap:6px 18px;flex-wrap:wrap}
+.mark{display:flex;align-items:center;gap:10px;font:600 18px Literata,Georgia,serif;color:var(--ink);text-decoration:none;margin-right:auto;min-height:44px}
+.mark svg{width:28px;height:28px}
+nav .links{display:flex;flex-wrap:wrap;gap:0 16px}
 nav .links a{color:var(--ink);text-decoration:none;font-size:15px;padding:10px 0}
 nav .links a:hover{color:var(--car)}
-.btn{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 18px;border-radius:8px;font:600 15px Inter,sans-serif;text-decoration:none;border:1px solid var(--rule);color:var(--ink);background:var(--bg)}
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 18px;border-radius:10px;font:600 15px Inter,sans-serif;text-decoration:none;border:1px solid var(--rule);color:var(--ink);background:var(--card)}
 .btn.main{background:var(--pru);border-color:var(--pru);color:light-dark(#fff,#0f1217)}
 .btn:hover{border-color:var(--pru)}
-.btn:focus-visible,.chip:focus-visible,nav a:focus-visible{outline:3px solid var(--car);outline-offset:2px}
-.hero{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:28px 56px;align-items:stretch}
-.side{display:flex;flex-direction:column;justify-content:space-between;gap:28px}
-.news h2{font-size:20px}
-.news ul{list-style:none;margin:10px 0 0;padding:0}
-.news li{display:grid;grid-template-columns:106px minmax(0,1fr);gap:12px;padding:10px 0;border-top:1px solid var(--rule);font-size:15px;line-height:1.45}
-.news time{color:var(--car);font-weight:600;white-space:nowrap}
-.hero h1{font-size:clamp(44px,6vw,72px)}
-.hero h1 span{display:block;font-size:20px;font-family:Inter,sans-serif;font-weight:500;color:var(--mut);letter-spacing:0;margin-top:10px}
-.role{margin-top:18px;font-size:17px;color:var(--mut);max-width:62ch}
-.lede{margin-top:14px;font-size:17px;max-width:64ch}
-.cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px;align-items:center}
-.mail{font-size:15px;color:var(--mut);margin-left:4px}
-.figs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:2px solid var(--ink)}
-.figs div{padding:14px 12px 4px 0}
-.figs b{display:block;font:600 clamp(36px,4.4vw,52px)/1 Literata,Georgia,serif;color:var(--car);letter-spacing:-.02em}
-.figs span{display:block;font-size:14px;color:var(--mut);margin-top:6px;line-height:1.35}
-.chart{margin-top:clamp(28px,4vw,48px)}
-.chart h2{font-size:clamp(22px,2.4vw,28px)}
-.fig{position:relative;height:500px;margin-top:14px}
+a:focus-visible,button:focus-visible{outline:3px solid var(--car);outline-offset:2px}
+.hero{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:32px 56px;align-items:center}
+.who{display:flex;gap:24px;align-items:center}
+.who img{width:clamp(96px,12vw,148px);height:clamp(96px,12vw,148px);border-radius:28px;object-fit:cover;object-position:50% 22%;flex:none;box-shadow:0 0 0 4px var(--bg),0 0 0 5px var(--rule)}
+.hero h1{font-size:clamp(40px,5.6vw,68px)}
+.hero h1 span{display:block;font:500 19px Inter,sans-serif;color:var(--mut);letter-spacing:0;margin-top:8px}
+.tag-line{margin-top:22px;font:600 clamp(19px,2vw,23px)/1.4 Inter,sans-serif;max-width:34ch}
+.tag-line b{color:var(--car);font-weight:600;white-space:nowrap}
+.role{margin-top:10px;color:var(--mut);max-width:60ch}
+.cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px;align-items:center}
+.mail{font-size:15px;color:var(--mut)}
+.stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.stat{background:var(--zone);border-radius:16px;padding:18px 18px 16px;text-decoration:none;color:var(--ink);transition:transform .15s}
+.stat:hover{transform:translateY(-2px)}
+.stat b{display:block;font:600 clamp(40px,4.6vw,56px)/1 Literata,Georgia,serif;letter-spacing:-.03em;color:var(--car)}
+.stat.c b{color:var(--pru)}
+.stat span{display:block;margin-top:8px;font-size:14.5px;color:var(--mut);line-height:1.35}
+.news{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:36px}
+.nw{border-left:3px solid var(--car);padding:4px 0 4px 14px;font-size:15px;line-height:1.45}
+.nw time{display:block;font-weight:700;font-size:13.5px;color:var(--car);margin-bottom:2px}
+.hl{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:28px}
+.card{background:var(--card);border:1px solid var(--rule);border-radius:18px;padding:20px;display:flex;flex-direction:column;gap:10px;text-decoration:none;color:var(--ink);transition:transform .15s,border-color .15s}
+a.card:hover{transform:translateY(-3px);border-color:var(--car)}
+.card svg{width:56px;height:40px}
+.card .big{font:600 clamp(34px,3.6vw,44px)/1 Literata,Georgia,serif;letter-spacing:-.03em;color:var(--car)}
+.card .big small{font-size:.5em;margin-left:4px;color:var(--ink)}
+.card .what{font-weight:600;font-size:15.5px;line-height:1.35}
+.card .ven{margin-top:auto;font-size:13.5px;color:var(--mut)}
+.card .ven b{color:var(--car);font-weight:600}
+.fig{position:relative;height:520px;margin-top:20px}
 .fig>svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
 svg text{font-family:Inter,sans-serif;paint-order:stroke;stroke:var(--bg);stroke-width:4px;stroke-linejoin:round}
-.note{font-size:14px;color:var(--mut);margin-top:10px}
-.grid4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px;margin-top:28px}
-.area{border-top:2px solid var(--car);padding-top:16px}
-.area p{margin-top:10px;font-size:15.5px}
-.area ul{margin:12px 0 0;padding:0;list-style:none;font-size:14.5px;color:var(--mut)}
-.area li{padding:6px 0;border-top:1px solid var(--rule)}
-.area li b{color:var(--ink);font-weight:600}
-.chiplist{list-style:none;margin:24px 0 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:56px}
-.chiplist li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 16px;padding:14px 0;border-top:1px solid var(--rule)}
-.chiplist b{font-weight:600;font-size:15.5px;line-height:1.4}
-.chiplist span{grid-column:1;font-size:14.5px;color:var(--mut)}
-.chiplist em{grid-column:2;grid-row:1 / span 2;align-self:start;font:500 13px/1 Inter,sans-serif;font-style:normal;padding:6px 9px;border-radius:4px;background:color-mix(in srgb,var(--pru) 12%,transparent);color:var(--pru);white-space:nowrap}
-.chiplist em.pend{background:transparent;border:1.5px dashed var(--pru);padding:4.5px 8px}
-.intro{margin-top:12px;font-size:16px;color:var(--mut);max-width:70ch}
+.alt svg text{stroke:var(--zone)}
+.row{cursor:pointer}
+.row:hover rect.hit,.row:focus rect.hit{fill:color-mix(in srgb,var(--ink) 6%,transparent)}
+.legend{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:14px;font-size:14px;color:var(--mut)}
+.legend i{display:inline-block;width:26px;height:10px;border-radius:2px;margin-right:8px;vertical-align:0}
+.tip{position:fixed;z-index:30;pointer-events:none;max-width:280px;background:var(--ink);color:var(--bg);padding:10px 12px;border-radius:10px;font-size:14px;line-height:1.4;opacity:0;transition:opacity .12s}
+.tip b{display:block}
+.grid4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:28px}
+.area{background:var(--card);border:1px solid var(--rule);border-radius:18px;padding:20px}
+.area svg{width:64px;height:48px;margin-bottom:10px}
+.area p{margin-top:8px;font-size:15px;color:var(--mut)}
+.area ul{margin:12px 0 0;padding:0;list-style:none;font-size:14.5px}
+.area li{padding:7px 0;border-top:1px solid var(--rule)}
+.dies{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:28px}
+.die{background:var(--card);border:1px solid var(--rule);border-radius:18px;padding:16px;display:flex;flex-direction:column;gap:10px}
+.die svg{width:100%;aspect-ratio:1/0.72;display:block}
+.die h3{font:600 15.5px/1.35 Inter,sans-serif;letter-spacing:0}
+.die p{font-size:14px;color:var(--mut)}
+.badge{align-self:flex-start;font:600 12.5px/1 Inter,sans-serif;padding:6px 9px;border-radius:20px;background:var(--ptint);color:var(--pru)}
+.badge.p{background:transparent;border:1.5px dashed var(--pru);padding:4.5px 8px}
 .head{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:16px}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
-.chip{min-height:44px;padding:0 16px;border-radius:22px;border:1px solid var(--rule);background:var(--bg);color:var(--ink);font:500 15px Inter,sans-serif;cursor:pointer}
+.chip{min-height:44px;padding:0 16px;border-radius:22px;border:1px solid var(--rule);background:var(--card);color:var(--ink);font:500 15px Inter,sans-serif;cursor:pointer}
 .chip[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
 .chip i{font-style:normal;opacity:.65;margin-left:6px}
-.pubs{list-style:none;margin:24px 0 0;padding:0}
-.pub{display:grid;grid-template-columns:72px minmax(0,1fr);gap:4px 20px;padding:18px 0;border-top:1px solid var(--rule)}
-.pub .y{font:600 20px/1.2 Literata,Georgia,serif;color:var(--mut)}
-.pub h3{font-size:18px}
+.pubs{list-style:none;margin:20px 0 0;padding:0}
+.pub{display:grid;grid-template-columns:118px minmax(0,1fr);gap:4px 20px;padding:16px 0;border-top:1px solid var(--rule)}
+.ven-b{align-self:start;justify-self:start;font:700 13px/1 Inter,sans-serif;padding:7px 9px;border-radius:6px;color:#fff;white-space:nowrap}
+.v-rfic{background:#c1121f}.v-ims{background:#0b4f8a}.v-mwtl{background:#3d4556}.v-tcas{background:#6b2f8a}.v-apmc{background:#8a6a1f}
+.pub h3{font:600 16.5px/1.4 Inter,sans-serif;letter-spacing:0}
 .pub h3 a{color:inherit;text-decoration:none}
 .pub h3 a:hover{color:var(--pru);text-decoration:underline}
-.doi{font:500 13px Inter,sans-serif;font-style:normal;margin-left:8px;white-space:nowrap}
-.who{display:flex;align-items:center;gap:clamp(16px,2.4vw,28px)}
-.who img{width:clamp(88px,10vw,132px);height:clamp(88px,10vw,132px);border-radius:50%;object-fit:cover;object-position:50% 22%;flex:none;border:1px solid var(--rule)}
-.pub .au{font-size:15px;color:var(--mut);margin-top:6px}
+.pub .au{font-size:14.5px;color:var(--mut);margin-top:4px}
 .pub .au b{color:var(--ink)}
-.pub .ve{font-size:15px;margin-top:4px;font-style:italic}
-.tag{display:inline-block;font:500 13px/1 Inter,sans-serif;font-style:normal;padding:5px 8px;border-radius:4px;margin-right:8px;vertical-align:1px;background:var(--zone);color:var(--ink)}
-.tag.first{background:var(--tint);color:var(--car)}
-.cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px 56px;margin-top:28px}
-.list{list-style:none;margin:0;padding:0}
-.list li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 16px;padding:14px 0;border-top:1px solid var(--rule)}
+.pub .ex{font-size:14px;margin-top:4px;color:var(--mut)}
+.first{display:inline-block;font:600 12.5px/1 Inter,sans-serif;padding:5px 8px;border-radius:20px;background:var(--tint);color:var(--car);margin-right:8px}
+.more{margin-top:18px}
+.tl{position:relative;height:340px;margin-top:24px}
+.tl>svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:36px 56px;margin-top:40px}
+.list{list-style:none;margin:12px 0 0;padding:0}
+.list li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 16px;padding:12px 0;border-top:1px solid var(--rule)}
 .list .t{font-weight:600}
 .list .s{grid-column:1;font-size:14.5px;color:var(--mut)}
-.list .d{grid-column:2;grid-row:1;font-size:14.5px;color:var(--car);white-space:nowrap;font-weight:500}
-.time li{grid-template-columns:150px minmax(0,1fr)}
-.time .d{grid-column:1;grid-row:1 / span 2;color:var(--car)}
-.time .t,.time .s{grid-column:2}
-.skills{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;margin-top:28px}
-.skills h3{font-size:18px}
-.skills p{margin-top:8px;font-size:15.5px;color:var(--mut)}
-.scroll{overflow-x:auto}
-table{border-collapse:collapse;width:100%;font-size:15px}
-th,td{text-align:left;padding:12px 10px 12px 0;border-top:1px solid var(--rule);vertical-align:top}
-th{font-weight:600;font-size:14px;color:var(--mut)}
-td.n{white-space:nowrap;color:var(--car)}
+.list .d{grid-column:2;grid-row:1;font-size:14.5px;color:var(--car);white-space:nowrap;font-weight:600}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.tags span{font-size:14px;padding:7px 12px;border-radius:20px;background:var(--zone);border:1px solid var(--rule)}
 .contact{background:var(--band);color:#fff}
-.contact a{color:#fff}
 .contact .grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:28px 56px;align-items:start}
 .contact p{margin-top:12px;font-size:17px;color:rgba(255,255,255,.86)}
+.contact a{color:#fff}
 .contact .btn{background:transparent;color:#fff;border-color:rgba(255,255,255,.5)}
 .contact .btn.main{background:#fff;color:#0b4f8a;border-color:#fff}
 .contact dl{margin:0;display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px 18px;font-size:15.5px}
 .contact dt{color:rgba(255,255,255,.7)}
 .contact dd{margin:0;overflow-wrap:anywhere}
 footer{padding:20px max(5vw,16px);font-size:14px;color:var(--mut)}
-@media(max-width:980px){.grid4{grid-template-columns:repeat(2,minmax(0,1fr))}.skills{grid-template-columns:minmax(0,1fr)}.chiplist{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:1000px){.hl,.grid4,.dies{grid-template-columns:repeat(2,minmax(0,1fr))}.news{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:820px){.hero,.cols,.contact .grid{grid-template-columns:minmax(0,1fr)}}
-@media(max-width:600px){.grid4{grid-template-columns:minmax(0,1fr)}.fig{height:610px}.pub{grid-template-columns:minmax(0,1fr)}.time li{grid-template-columns:minmax(0,1fr)}.time .d{grid-row:auto}.time .t,.time .s{grid-column:1}nav .links{gap:0 14px}nav .links a{font-size:14px}nav .links a.opt{display:none}.stack thead{display:none}.stack tr{display:grid;padding-block:10px;border-top:1px solid var(--rule)}.stack td{border:0;padding:3px 0}.stack td.n{white-space:normal}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.bar{animation:none!important}}
+@media(max-width:600px){.who{flex-direction:column;align-items:flex-start;gap:16px}.hl,.grid4{grid-template-columns:minmax(0,1fr)}.dies{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.die{padding:12px}.fig{height:640px}.pub{grid-template-columns:minmax(0,1fr)}.tl{height:430px}nav .links{gap:0 14px}nav .links a{font-size:14px}nav .links a.opt{display:none}.news{grid-template-columns:minmax(0,1fr)}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.bar{animation:none!important}.card,.stat{transition:none}}
 @keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
 .bar{transform-box:fill-box;transform-origin:left center;animation:grow .7s ease-out both}
 </style>
@@ -133,12 +146,10 @@ footer{padding:20px max(5vw,16px);font-size:14px;color:var(--mut)}
 <nav aria-label="Main">
   <div class="wrap">
     <a class="mark" href="#top" aria-label="Min-Seok Baek, home">
-      <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18" fill="none" stroke="var(--ink)" stroke-width="2"/><line x1="2" y1="20" x2="38" y2="20" stroke="var(--ink)" stroke-width="1.4"/><circle cx="26" cy="20" r="12" fill="none" stroke="var(--car)" stroke-width="1.6"/><circle cx="32" cy="20" r="6" fill="none" stroke="var(--car)" stroke-width="1.6"/><path d="M38 20 A18 18 0 0 0 20 2" fill="none" stroke="var(--pru)" stroke-width="1.6"/><path d="M38 20 A18 18 0 0 1 20 38" fill="none" stroke="var(--pru)" stroke-width="1.6"/></svg>
+      <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18" fill="none" stroke="var(--ink)" stroke-width="2"/><line x1="2" y1="20" x2="38" y2="20" stroke="var(--ink)" stroke-width="1.4"/><circle cx="26" cy="20" r="12" fill="none" stroke="var(--car)" stroke-width="1.8"/><circle cx="32" cy="20" r="6" fill="none" stroke="var(--car)" stroke-width="1.8"/><path d="M38 20 A18 18 0 0 0 20 2" fill="none" stroke="var(--pru)" stroke-width="1.8"/><path d="M38 20 A18 18 0 0 1 20 38" fill="none" stroke="var(--pru)" stroke-width="1.8"/></svg>
       Min-Seok Baek
     </a>
-    <div class="links">
-      <a href="#research">Research</a><a class="opt" href="#chips">Chips</a><a href="#publications">Publications</a><a class="opt" href="#patents">Patents</a><a href="#experience">Experience</a><a href="#contact">Contact</a>
-    </div>
+    <div class="links"><a href="#highlights">Highlights</a><a class="opt" href="#map">Frequency map</a><a href="#chips">Chips</a><a href="#publications">Papers</a><a class="opt" href="#journey">Journey</a><a href="#contact">Contact</a></div>
   </div>
 </nav>
 
@@ -146,147 +157,140 @@ footer{padding:20px max(5vw,16px);font-size:14px;color:var(--mut)}
   <div class="wrap">
     <div class="hero">
       <div>
-        <div class="who"><img src="img/profile.jpg" alt="Min-Seok Baek" width="132" height="132"><h1>Min-Seok Baek<span>백민석</span></h1></div>
-        <p class="role">Integrated M.S.–Ph.D. student in Electronics Engineering at Chungnam National University, in Prof. Choul-Young Kim's Semiconductor Circuit Design Laboratory.</p>
-        <p class="lede">I design RF and millimeter-wave integrated circuits in CMOS and SiGe BiCMOS: low-noise amplifiers, power amplifiers, and the phase shifters, attenuators and switches inside phased-array beamformers. Most of my first-author LNAs use partially coupled transformers for broadband input matching, with large-transistor or Class-AB biasing for high IP1dB. In 2024 and 2026 I visited Prof. Gabriel M. Rebeiz's group at UC San Diego to work on SiGe BiCMOS D-band phased-array beamformers.</p>
+        <div class="who"><img src="img/profile.jpg" alt="Min-Seok Baek on the Brooklyn Bridge" width="148" height="148"><h1>Min-Seok Baek<span>백민석</span></h1></div>
+        <p class="tag-line">I design <b>RF and mm-wave ICs</b>: LNAs, PAs and phased-array beamformers, from <b>5 GHz to 150 GHz</b>.</p>
+        <p class="role">Integrated M.S.–Ph.D. student in Electronics Engineering, Chungnam National University. Semiconductor Circuit Design Laboratory, advised by Prof. Choul-Young Kim. Visiting Graduate Scholar with Prof. Gabriel M. Rebeiz at UC San Diego in 2024 and 2026.</p>
         <div class="cta">
           <a class="btn main" href="https://drive.google.com/file/d/1pzQb_-FQVRaJVkOZQG4b4PhKSv1qFB9V/view">Curriculum vitae</a>
           <a class="btn" href="https://scholar.google.com/citations?user=1PfqbWUAAAAJ&amp;hl=en">Google Scholar</a>
           <a class="btn" href="https://www.linkedin.com/in/minseok-baek/">LinkedIn</a>
-          <a class="mail" href="mailto:202250794@o.cnu.ac.kr">202250794@o.cnu.ac.kr</a>
         </div>
       </div>
-      <div class="side">
-        <section class="news" aria-labelledby="news-h">
-          <h2 id="news-h">News</h2>
-          <ul>
-            <li><time>Nov 2026</time><span>TCAS-II paper on an X-band LNA with a partially tail-coupled transformer accepted.</span></li>
-            <li><time>Jun–Jul 2026</time><span>Visiting Graduate Scholar in Prof. Gabriel M. Rebeiz's group at UC San Diego.</span></li>
-            <li><time>Jun 2026</time><span>Two papers at IEEE RFIC 2026 in Boston, including my 10–19.2 GHz LNA for 6G FR3.</span></li>
-            <li><time>2025</time><span>Three papers at IEEE IMS 2025 and two at APMC 2025.</span></li>
-          </ul>
-        </section>
-        <div class="figs" aria-label="Publication record">
-          <div><b>7</b><span>journal papers, 3 as first author</span></div>
-          <div><b>10</b><span>international conference papers, 4 at RFIC</span></div>
-          <div><b>5</b><span>patents registered in Korea</span></div>
-        </div>
+      <div class="stats" aria-label="At a glance">
+        <a class="stat" href="#publications"><b>7</b><span>journal papers, 3 as first author</span></a>
+        <a class="stat" href="#publications"><b>10</b><span>conference papers, 4 at IEEE RFIC</span></a>
+        <a class="stat c" href="#chips"><b>8</b><span>more chips measured or fabricated</span></a>
+        <a class="stat c" href="#patents"><b>5</b><span>patents registered in Korea</span></a>
       </div>
     </div>
-
-    <section class="chart" aria-labelledby="chart-h">
-      <h2 id="chart-h">Circuits from 5-GHz Wi-Fi to 150 GHz</h2>
-      <div class="fig"><svg id="spec" role="img" aria-label="Frequency ranges of published circuits and unpublished chips on a logarithmic axis from 4 to 180 GHz"></svg></div>
-      <p class="note">Red marks published work: solid bars show the frequency range reported in the paper, hatched bars span the band named in the title. Blue outlines are unpublished chips, labelled with their status. Logarithmic axis, band names after IEEE and waveguide convention.</p>
-    </section>
+    <div class="news" aria-label="News">
+      <p class="nw"><time>Nov 2026</time>TCAS-II paper on an X-band LNA accepted.</p>
+      <p class="nw"><time>Jun–Jul 2026</time>Visiting Graduate Scholar at UC San Diego.</p>
+      <p class="nw"><time>Jun 2026</time>Two papers at IEEE RFIC 2026, Boston.</p>
+      <p class="nw"><time>2025</time>Three papers at IEEE IMS 2025, two at APMC.</p>
+    </div>
   </div>
 </header>
 
-<section class="band rule" id="research" aria-labelledby="research-h">
+<section class="band alt" id="highlights" aria-labelledby="hl-h">
   <div class="wrap">
-    <h2 id="research-h">Research</h2>
+    <h2 id="hl-h">Highlights</h2>
+    <p class="sub">Four results in one glance. Each card opens the paper.</p>
+    <div class="hl">
+      <a class="card" href="https://doi.org/10.1109/IMS40360.2025.11103820">
+        <svg viewBox="0 0 56 40" aria-hidden="true"><path d="M2 20h8" stroke="var(--ink)" stroke-width="2"/><path d="M10 12q4 0 4 4t-4 4q4 0 4 4t-4 4" fill="none" stroke="var(--pru)" stroke-width="2"/><path d="M20 8v24l20-12z" fill="var(--tint)" stroke="var(--car)" stroke-width="2"/><path d="M40 20h14" stroke="var(--ink)" stroke-width="2"/></svg>
+        <span class="big">1.8<small>dB</small></span>
+        <span class="what">Average noise figure, 8–12.2 GHz CMOS LNA with a partially tail-coupled transformer</span>
+        <span class="ven"><b>First author</b> · IMS 2025, extended in TCAS-II</span>
+      </a>
+      <a class="card" href="https://doi.org/10.1109/RFIC70222.2026.11602222">
+        <svg viewBox="0 0 56 40" aria-hidden="true"><path d="M2 20h10" stroke="var(--ink)" stroke-width="2"/><path d="M12 6v28l24-14z" fill="var(--tint)" stroke="var(--car)" stroke-width="2"/><path d="M36 20h6" stroke="var(--ink)" stroke-width="2"/><path d="M44 12l8 8-8 8" fill="none" stroke="var(--car)" stroke-width="2"/></svg>
+        <span class="big">−2.4<small>dBm</small></span>
+        <span class="what">Peak IP1dB of a 10–19.2 GHz LNA for 6G FR3 (−5.3 to −2.4 dBm across the band)</span>
+        <span class="ven"><b>First author</b> · RFIC 2026</span>
+      </a>
+      <a class="card" href="https://doi.org/10.1109/RFIC70222.2026.11602350">
+        <svg viewBox="0 0 56 40" aria-hidden="true"><path d="M2 20h8" stroke="var(--ink)" stroke-width="2"/><path d="M10 6v28l22-14z" fill="var(--ptint)" stroke="var(--pru)" stroke-width="2"/><path d="M32 20h4" stroke="var(--ink)" stroke-width="2"/><path d="M40 12q6 8 0 16M46 8q9 12 0 24" fill="none" stroke="var(--pru)" stroke-width="2"/></svg>
+        <span class="big">34<small>dB</small></span>
+        <span class="what">Gain of a compact 125–150 GHz SiGe PA for phased-array transmitters</span>
+        <span class="ven">With Prof. Rebeiz · RFIC 2026</span>
+      </a>
+      <a class="card" href="https://doi.org/10.1109/LMWT.2025.3589587">
+        <svg viewBox="0 0 56 40" aria-hidden="true"><g fill="var(--tint)" stroke="var(--car)" stroke-width="1.6"><rect x="4" y="14" width="7" height="12" rx="1.5"/><rect x="12.5" y="14" width="7" height="12" rx="1.5"/><rect x="21" y="14" width="7" height="12" rx="1.5"/><rect x="29.5" y="14" width="7" height="12" rx="1.5"/><rect x="38" y="14" width="7" height="12" rx="1.5"/><rect x="46.5" y="14" width="7" height="12" rx="1.5"/></g></svg>
+        <span class="big">6<small>bit</small></span>
+        <span class="what">CMOS attenuator with low phase variation using a capacitive π-bridge</span>
+        <span class="ven"><b>First author</b> · MWTL 2025</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="map" aria-labelledby="map-h">
+  <div class="wrap">
+    <h2 id="map-h">Frequency map: 5 GHz to 150 GHz</h2>
+    <p class="sub">Every circuit placed on the spectrum. Hover or tap a row for details; published rows open the paper.</p>
+    <div class="fig"><svg id="spec" role="img" aria-label="Frequency ranges of published circuits and unpublished chips on a logarithmic axis from 4 to 180 GHz"></svg></div>
+    <div class="legend"><span><i style="background:var(--car)"></i>Published, reported range</span><span><i style="background:repeating-linear-gradient(45deg,var(--car) 0 2px,transparent 2px 6px);border:1px solid var(--car)"></i>Published, band named in title</span><span><i style="border:1.5px dashed var(--pru)"></i>Unpublished chip</span></div>
+  </div>
+</section>
+
+<section class="band alt" id="research" aria-labelledby="research-h">
+  <div class="wrap">
+    <h2 id="research-h">What I work on</h2>
     <div class="grid4">
       <article class="area">
-        <h3>Broadband LNAs with low noise and high linearity</h3>
-        <p>Partially tail-coupled, partially three-winding and partially coupled transformers widen the input match; large devices and Class-AB operation raise IP1dB.</p>
-        <ul>
-          <li><b>8–12.2 GHz, 1.8 dB average NF</b> in CMOS (IMS 2025, extended in TCAS-II)</li>
-          <li><b>10–19.2 GHz, −5.3 to −2.4 dBm IP1dB</b> for 6G FR3 receivers (RFIC 2026)</li>
-          <li><b>21.5–35.5 GHz</b> LNA with integrated 180° phase shifting (APMC 2025)</li>
-        </ul>
+        <svg viewBox="0 0 64 48" aria-hidden="true"><path d="M2 24h10" stroke="var(--ink)" stroke-width="2"/><path d="M12 14q5 0 5 5t-5 5q5 0 5 5t-5 5" fill="none" stroke="var(--pru)" stroke-width="2"/><path d="M19 14q-5 0-5 5" fill="none" stroke="none"/><path d="M24 10v28l24-14z" fill="var(--tint)" stroke="var(--car)" stroke-width="2"/><path d="M48 24h14" stroke="var(--ink)" stroke-width="2"/></svg>
+        <h3>Broadband, high-linearity LNAs</h3>
+        <p>Partially coupled transformers for wide input matching; large devices and Class-AB for high IP1dB.</p>
+        <ul><li>8–12.2 GHz, 1.8 dB avg NF</li><li>10–19.2 GHz, up to −2.4 dBm IP1dB</li><li>21.5–35.5 GHz with built-in 180° shift</li></ul>
       </article>
       <article class="area">
+        <svg viewBox="0 0 64 48" aria-hidden="true"><path d="M30 34 L44 6 a10 10 0 0 1 10 6 Z" fill="var(--ptint)" stroke="var(--pru)" stroke-width="1.8"/><g stroke="var(--ink)" stroke-width="2"><path d="M8 44v-8M4 36h8M22 44v-8M18 36h8M36 44v-8M32 36h8M50 44v-8M46 36h8"/></g></svg>
         <h3>Phased-array building blocks</h3>
-        <p>Attenuators, phase shifters, switches and dividers that keep amplitude and phase consistent across a beamformer channel.</p>
-        <ul>
-          <li><b>6-bit CMOS attenuator</b> with low phase variation (MWTL 2025)</li>
-          <li><b>Transformer-based 180° switching</b> for CMOS phase shifters (MWTL 2024)</li>
-          <li><b>W- and D-band Wilkinson</b> divider/combiner (APMC 2025)</li>
-        </ul>
+        <p>Attenuators, phase shifters, switches and dividers that keep every channel in step.</p>
+        <ul><li>6-bit attenuator, low phase error</li><li>Transformer-based 180° switching</li><li>W/D-band Wilkinson divider</li></ul>
       </article>
       <article class="area">
+        <svg viewBox="0 0 64 48" aria-hidden="true"><path d="M2 24h8" stroke="var(--ink)" stroke-width="2"/><path d="M10 8v32l26-16z" fill="var(--tint)" stroke="var(--car)" stroke-width="2"/><path d="M36 24h4" stroke="var(--ink)" stroke-width="2"/><path d="M44 14q7 10 0 20M51 9q10 15 0 30" fill="none" stroke="var(--car)" stroke-width="2"/></svg>
         <h3>Power amplifiers</h3>
-        <p>Transformer power combining and compact drive stages in CMOS, and SiGe PAs for D-band phased-array transmitters.</p>
-        <ul>
-          <li><b>125–150 GHz SiGe PA, 34 dB gain</b> with Prof. Rebeiz (RFIC 2026)</li>
-          <li><b>Ku-band PA, 23–23.4 dBm Psat</b>, 45.2–46.6% peak PAE in 65-nm CMOS (RFIC 2024)</li>
-          <li><b>Dual-core drive stage</b> with a three-winding transformer (MWTL 2024)</li>
-        </ul>
+        <p>Transformer power combining in CMOS and SiGe PAs for D-band transmitters.</p>
+        <ul><li>125–150 GHz SiGe PA, 34 dB gain</li><li>Ku-band PA, 46.6% peak PAE</li><li>Wi-Fi 6E/7 PA in CMOS SOI</li></ul>
       </article>
       <article class="area">
-        <h3>Radar–communication transceivers</h3>
-        <p>Project work on transceivers that share one radio for sensing and data, from C/X/Ku/K/Ka-band beamformers to D-band.</p>
-        <ul>
-          <li><b>Single-antenna, dual-polarization full-duplex</b> RadCom transceiver ICs (NRF)</li>
-          <li><b>Ultra-compact mm-wave</b> radar–communication system (IITP)</li>
-          <li><b>D-band beamforming modules</b> and low-loss materials (KEIT)</li>
-        </ul>
+        <svg viewBox="0 0 64 48" aria-hidden="true"><circle cx="10" cy="24" r="4" fill="var(--pru)"/><path d="M18 14q8 10 0 20M26 8q12 16 0 32" fill="none" stroke="var(--pru)" stroke-width="2"/><g fill="var(--car)"><rect x="38" y="15" width="6" height="6" rx="1"/><rect x="46" y="15" width="6" height="6" rx="1" opacity=".45"/><rect x="54" y="15" width="6" height="6" rx="1"/><rect x="38" y="27" width="6" height="6" rx="1" opacity=".45"/><rect x="46" y="27" width="6" height="6" rx="1"/><rect x="54" y="27" width="6" height="6" rx="1" opacity=".45"/></g></svg>
+        <h3>Radar–communication chips</h3>
+        <p>One radio for sensing and data: phased-array transceivers from C band to 120 GHz.</p>
+        <ul><li>120-GHz 1×1 and 4×4 MIMO RadCom</li><li>Ku-band 4TX-4RX SATCOM front-end</li><li>K/Ka-band transceiver</li></ul>
       </article>
     </div>
   </div>
 </section>
 
-<section class="band rule" id="chips" aria-labelledby="chips-h">
+<section class="band" id="chips" aria-labelledby="chips-h">
   <div class="wrap">
-    <h2 id="chips-h">Chips and design experience</h2>
-    <p class="intro">Measured and fabricated chips beyond the papers above, from C band to D band. Results will appear here as they are published.</p>
-    <ul class="chiplist">
-      <li><b>120-GHz radar–communication 1TX-1RX transceiver</b><span>90-nm SiGe BiCMOS (GF 9HP+)</span><em class="pend">Fabricated, measurement pending</em></li>
-      <li><b>120-GHz 4TX-4RX MIMO radar–communication transceiver</b><span>90-nm SiGe BiCMOS (GF 9HP+)</span><em class="pend">Fabricated, measurement pending</em></li>
-      <li><b>Ku-band 4TX-4RX front-end for satellite communication</b><span>65-nm CMOS. Team chip; I contributed to its design.</span><em>Measured</em></li>
-      <li><b>K/Ka-band transceiver front-end</b><span>65-nm CMOS</span><em>Measured</em></li>
-      <li><b>Ka-band ×6 frequency multiplier</b><span>65-nm CMOS</span><em>Measured</em></li>
-      <li><b>X-band 4-channel TX beamformer, 7.9–8.4 GHz</b><span>65-nm CMOS</span><em>Measured</em></li>
-      <li><b>C-band 2TX-2RX front-end</b><span>GlobalFoundries 8SW SOI</span><em>Measured</em></li>
-      <li><b>5–7.2 GHz Wi-Fi 6E/7 power amplifier</b><span>CMOS SOI</span><em>Measured</em></li>
-    </ul>
+    <h2 id="chips-h">Chip gallery</h2>
+    <p class="sub">Chips beyond the papers. The drawings are stylized layouts, not die photos; results will be added as they are published.</p>
+    <div class="dies" id="dies"></div>
   </div>
 </section>
 
-<section class="band rule" id="publications" aria-labelledby="pub-h">
+<section class="band alt" id="publications" aria-labelledby="pub-h">
   <div class="wrap">
     <div class="head">
-      <h2 id="pub-h">Publications</h2>
-      <div class="chips" role="group" aria-label="Filter publications" id="filters"></div>
+      <h2 id="pub-h">Papers</h2>
+      <div class="chips" role="group" aria-label="Filter papers" id="filters"></div>
     </div>
     <ol class="pubs" id="pubs"></ol>
+    <button class="chip more" type="button" id="more"></button>
   </div>
 </section>
 
-<section class="band rule" id="patents" aria-labelledby="pat-h">
+<section class="band" id="journey" aria-labelledby="j-h">
   <div class="wrap">
-    <h2 id="pat-h">Patents</h2>
-    <div class="scroll" style="margin-top:20px">
-      <table class="stack">
-        <thead><tr><th>Title</th><th>Inventors</th><th>Number</th></tr></thead>
-        <tbody id="pats"></tbody>
-      </table>
-    </div>
-  </div>
-</section>
-
-<section class="band rule" id="experience" aria-labelledby="exp-h">
-  <div class="wrap">
-    <h2 id="exp-h">Education and experience</h2>
+    <h2 id="j-h">Journey</h2>
+    <p class="sub">Education, research visits, funded projects and papers on one time axis.</p>
+    <div class="tl"><svg id="tl" role="img" aria-label="Timeline from 2016 to 2026 of education, visits, projects and papers"></svg></div>
     <div class="cols">
-      <div>
-        <ul class="list time">
-          <li><span class="d">Sep 2022 – now</span><span class="t">Integrated M.S.–Ph.D. program, Chungnam National University</span><span class="s">Electronics Engineering, Daejeon, Korea. Advisor: Prof. Choul-Young Kim.</span></li>
-          <li><span class="d">Jun – Jul 2026<br>Sep 2024</span><span class="t">Visiting Graduate Scholar, UC San Diego</span><span class="s">Prof. Gabriel M. Rebeiz's group, San Diego, CA. SiGe BiCMOS D-band phased-array beamformer ICs.</span></li>
-          <li><span class="d">Mar 2016 – Feb 2022</span><span class="t">B.S., Chungnam National University</span><span class="s">Electronics Engineering, Daejeon, Korea.</span></li>
-        </ul>
-        <h3 style="margin-top:36px">Awards</h3>
-        <ul class="list" style="margin-top:12px" id="awards"></ul>
+      <div id="patents">
+        <h3>Patents</h3>
+        <ul class="list" id="pats"></ul>
       </div>
       <div>
-        <h3>Research projects</h3>
-        <ul class="list" style="margin-top:12px" id="projects"></ul>
+        <h3>Awards</h3>
+        <ul class="list" id="awards"></ul>
+        <h3 style="margin-top:32px">Tools and processes</h3>
+        <div class="tags"><span>Cadence Virtuoso / Spectre</span><span>Keysight ADS</span><span>Sonnet</span><span>EMX</span><span>Calibre</span><span>MATLAB</span><span>65-nm CMOS</span><span>CMOS SOI</span><span>SiGe BiCMOS (GF 9HP+)</span><span>0.1-µm GaAs pHEMT</span><span>On-wafer mm-wave measurement</span></div>
       </div>
-    </div>
-    <div class="skills">
-      <div><h3>Processes</h3><p>65-nm CMOS, CMOS SOI, 90-nm SiGe BiCMOS (GF 9HP+), 0.1-µm GaAs pHEMT; designs from C band to D band, up to 150 GHz.</p></div>
-      <div><h3>Design tools</h3><p>Cadence Virtuoso and Spectre, Keysight ADS, Sonnet, EMX, Calibre, MATLAB.</p></div>
-      <div><h3>Measurement</h3><p>On-wafer probing with network, signal and noise-figure analyzers, signal generators and mm-wave frequency-extension modules.</p></div>
     </div>
   </div>
 </section>
@@ -309,112 +313,170 @@ footer{padding:20px max(5vw,16px);font-size:14px;color:var(--mut)}
   </div>
 </section>
 <footer><div class="wrap">© 2026 Min-Seok Baek. Last updated November 2026.</div></footer>
+<div class="tip" id="tip" role="status"></div>
 
 <script>
 {
 const ME='Min-Seok Baek';
+const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');
+const bold=s=>esc(s).replace(ME,'<b>'+ME+'</b>');
 const pubs=[
- {y:2026,k:'j',f:1,t:'Analysis and Design of an X-Band CMOS LNA With a Partially Tail-Coupled Transformer',a:'Min-Seok Baek, Jeong-Taek Son, Seong-Mo Moon, Dongpil Chang, and Choul-Young Kim',v:'IEEE Transactions on Circuits and Systems II: Express Briefs, accepted'},
- {d:'10.1109/RFIC70222.2026.11602222',y:2026,k:'c',f:1,t:'A 10–19.2 GHz LNA Using a Partially Three-Winding Transformer and Class-AB Operation Achieving −5.3 to −2.4 dBm IP1dB for 6G FR3 Receivers',a:'Min-Seok Baek, Joon-Hyung Kim, Jae-Hyeok Song, Jong-Seong Park, Ilhun Kim, Eun-Gyu Lee, Seong-Mo Moon, Dongpil Chang, and Choul-Young Kim',v:'IEEE Radio Frequency Integrated Circuits Symposium (RFIC)'},
- {d:'10.1109/RFIC70222.2026.11602350',y:2026,k:'c',f:0,t:'A Compact 125-150-GHz Power Amplifier in 90-nm SiGe 9HP+ BiCMOS with 34-dB Gain for Phased-Array Transmitters',a:'Joon-Hyung Kim, Jae-Hyeok Song, Min-Seok Baek, Jong-Seong Park, Gabriel M. Rebeiz, and Choul-Young Kim',v:'IEEE Radio Frequency Integrated Circuits Symposium (RFIC)'},
- {d:'10.1109/LMWT.2025.3589587',y:2025,k:'j',f:1,t:'A 6-bit CMOS Attenuator With Low Phase Variation Using a Bandpass Response Capacitive π-Bridge Network',a:'Min-Seok Baek, Byeong-Chan Lee, Jae-Hyeok Song, Joon-Hyung Kim, Jeong-Taek Lim, and Choul-Young Kim',v:'IEEE Microwave and Wireless Technology Letters'},
- {d:'10.1109/APMC65046.2025.11378707',y:2025,k:'c',f:1,t:'A 21.5–35.5 GHz CMOS LNA with Integrated 180° Phase Shifting Using Partially Coupled Transformer for 5G NR Applications',a:'Min-Seok Baek, Han-Woong Choi, Joon-Hyung Kim, Jae-Hyeok Song, Jae-Eun Lee, Jeong-Taek Son, Byeong-Chan Lee, Jong-Seong Park, Ilhun Kim, Eun-Gyu Lee, and Choul-Young Kim',v:'Asia-Pacific Microwave Conference (APMC)'},
- {d:'10.1109/IMS40360.2025.11103820',y:2025,k:'c',f:1,t:'An 8-12.2 GHz CMOS Low-Noise Amplifier with Partially Tail-Coupled Transformer and Large-Transistor Achieving 1.8 dB Average NF',a:'Min-Seok Baek, Jae-Hyeok Song, Jae-Eun Lee, Jong-Seong Park, Ilhun Kim, Jeong-Taek Lim, Eun-Gyu Lee, Seong-Mo Moon, Dongpil Chang, and Choul-Young Kim',v:'IEEE/MTT-S International Microwave Symposium (IMS)'},
- {d:'10.1109/APMC65046.2025.11377622',y:2025,k:'c',f:0,t:'A Compact High-Isolation Wilkinson Power Divider Combiner for W- and D-Band with Series and Coupled Inductors',a:'Jong-Seong Park, Joon-Hyung Kim, Jae-Hyeok Song, Jae-Eun Lee, Jeong-Taek Son, Min-Seok Baek, Byeong-Chan Lee, Ilhun Kim, Eun-Gyu Lee, and Choul-Young Kim',v:'Asia-Pacific Microwave Conference (APMC)'},
- {d:'10.1109/IMS40360.2025.11104012',y:2025,k:'c',f:0,t:'Broadband LNA with Dual-Resonance Matching Network with Capacitive Feedback for Improved Gain and Noise Figure Using 0.1-μm GaAs pHEMT Technology',a:'Jong-Seong Park, Jeong-Taek Son, Joon-Hyung Kim, Min-Seok Baek, Byeong-Chan Lee, Eun-Gyu Lee, Jeong-Taek Lim, Seong-Mo Moon, Dongpil Chang, and Choul-Young Kim',v:'IEEE/MTT-S International Microwave Symposium (IMS)'},
- {d:'10.1109/IMS40360.2025.11103817',y:2025,k:'c',f:0,t:'A Ku-Band CMOS LNA with Symmetric Polarity-Selective Transformer for Efficient 180° Phase Shifting',a:'Jae-Hyeok Song, Jeong-Taek Lim, Jae-Eun Lee, Jeong-Taek Son, Joon-Hyung Kim, Min-Seok Baek, Eun-Gyu Lee, Seong-Mo Moon, Dongpil Chang, and Choul-Young Kim',v:'IEEE/MTT-S International Microwave Symposium (IMS)'},
- {d:'10.1109/LMWT.2023.3348529',y:2024,k:'j',f:1,t:'A Low-Power High-IP1dB Low-Noise Amplifier Using Large-Transistor and Class-AB Mode',a:'Min-Seok Baek, Han-Woong Choi, Joon-Hyung Kim, Jae-Hyeok Song, Jae-Eun Lee, Jeong-Taek Son, and Choul-Young Kim',v:'IEEE Microwave and Wireless Technology Letters'},
- {d:'10.1109/LMWT.2024.3392986',y:2024,k:'j',f:0,t:'180° Switching-Method based on Transformer for CMOS Phase Shifter',a:'Joon-Hyung Kim, Han-Woong Choi, Min-Seok Baek, and Choul-Young Kim',v:'IEEE Microwave and Wireless Technology Letters'},
- {d:'10.1109/LMWT.2024.3396491',y:2024,k:'j',f:0,t:'Compact Dual-Core Drive Stage Using Three-Winding Transformer for CMOS Broadband Power Amplifier',a:'Joon-Hyung Kim, Jeong-Taek Son, Jae-Hyeok Song, Jae-Eun Lee, Min-Seok Baek, Jeong-Taek Lim, Han-Woong Choi, Seong-Mo Moon, Dongpil Chang, and Choul-Young Kim',v:'IEEE Microwave and Wireless Technology Letters; presented at IEEE IMS 2024'},
- {d:'10.1109/LMWT.2024.3362054',y:2024,k:'j',f:0,t:'A Sub-6 GHz Asymmetric GaAs SPDT Switch With High Tx-to-Rx Isolation and Low Insertion Loss',a:'Jae-Eun Lee, Jae-Hyeok Song, Min-Seok Baek, Jeong-Taek Son, Joon-Hyung Kim, Eun-Gyu Lee, Sunkyu Choi, and Choul-Young Kim',v:'IEEE Microwave and Wireless Technology Letters'},
- {d:'10.1109/LMWT.2023.3325393',y:2024,k:'j',f:0,t:'Low Insertion Loss CMOS Phase Shifter for Wireless Power Transfer System',a:'Jeong-Taek Lim, Jae-Hyeok Song, Joon-Hyung Kim, Min-Seok Baek, Changkun Park, and Choul-Young Kim',v:'IEEE Microwave and Wireless Technology Letters'},
- {d:'10.1109/APMC60911.2024.10867450',y:2024,k:'c',f:0,t:'CMOS Power Amplifiers with Symmetrical IMD3 Performance for 802.11ac 5G-band WiFi Applications',a:'Jae-Hyeok Song, Jeong-Taek Lim, Jae-Eun Lee, Jeong-Taek Son, Joon-Hyung Kim, Min-Seok Baek, Byeong-Chan Lee, Jong-Seong Park, Ilhun Kim, Eun-Gyu Lee, and Choul-Young Kim',v:'Asia-Pacific Microwave Conference (APMC)'},
- {d:'10.1109/RFIC61187.2024.10599991',y:2024,k:'c',f:0,t:'An Efficient Ku-Band Two-Way Vertical-like Power-Combining Power Amplifier using Merged Inter-stage Transformers Achieving 23-23.4 dBm Psat and 45.2-46.6% Peak PAE in 65nm CMOS',a:'Joon-Hyung Kim, Jeong-Taek Lim, Jae-Eun Lee, Jae-Hyeok Song, Jeong-Taek Son, Min-Seok Baek, Eun-Gyu Lee, Sunkyu Choi, Han-Woong Choi, Seong-Mo Moon, Dongpil Chang, and Choul-Young Kim',v:'IEEE Radio Frequency Integrated Circuits Symposium (RFIC)'},
- {d:'10.1109/RFIC54547.2023.10186167',y:2023,k:'c',f:0,t:'High-Performance Broadband CMOS Low-Noise Amplifier with a Three-Winding Transformer for Broadband Matching',a:'Joon-Hyung Kim, Jeong-Taek Son, Jeong-Taek Lim, Jae-Eun Lee, Jae-Hyeok Song, Min-Seok Baek, Han-Woong Choi, Eun-Gyu Lee, Sunkyu Choi, Chong-Min Lee, Sung-Ku Yeo, and Choul-Young Kim',v:'IEEE Radio Frequency Integrated Circuits Symposium (RFIC)'}
+ {y:2026,k:'j',f:1,vc:'tcas',vs:'TCAS-II 2026',t:'Analysis and Design of an X-Band CMOS LNA With a Partially Tail-Coupled Transformer',a:'Min-Seok Baek, Jeong-Taek Son, Seong-Mo Moon, Dongpil Chang, and Choul-Young Kim',x:'IEEE Transactions on Circuits and Systems II, accepted'},
+ {y:2026,k:'c',f:1,vc:'rfic',vs:'RFIC 2026',d:'10.1109/RFIC70222.2026.11602222',t:'A 10–19.2 GHz LNA Using a Partially Three-Winding Transformer and Class-AB Operation Achieving −5.3 to −2.4 dBm IP1dB for 6G FR3 Receivers',a:'Min-Seok Baek, Joon-Hyung Kim, Jae-Hyeok Song, Jong-Seong Park, Ilhun Kim, Eun-Gyu Lee, Seong-Mo Moon, Dongpil Chang, and Choul-Young Kim'},
+ {y:2026,k:'c',f:0,vc:'rfic',vs:'RFIC 2026',d:'10.1109/RFIC70222.2026.11602350',t:'A Compact 125-150-GHz Power Amplifier in 90-nm SiGe 9HP+ BiCMOS with 34-dB Gain for Phased-Array Transmitters',a:'Joon-Hyung Kim, Jae-Hyeok Song, Min-Seok Baek, Jong-Seong Park, Gabriel M. Rebeiz, and Choul-Young Kim'},
+ {y:2025,k:'j',f:1,vc:'mwtl',vs:'MWTL 2025',d:'10.1109/LMWT.2025.3589587',t:'A 6-bit CMOS Attenuator With Low Phase Variation Using a Bandpass Response Capacitive π-Bridge Network',a:'Min-Seok Baek, Byeong-Chan Lee, Jae-Hyeok Song, Joon-Hyung Kim, Jeong-Taek Lim, and Choul-Young Kim'},
+ {y:2025,k:'c',f:1,vc:'apmc',vs:'APMC 2025',d:'10.1109/APMC65046.2025.11378707',t:'A 21.5–35.5 GHz CMOS LNA with Integrated 180° Phase Shifting Using Partially Coupled Transformer for 5G NR Applications',a:'Min-Seok Baek, Han-Woong Choi, Joon-Hyung Kim, Jae-Hyeok Song, Jae-Eun Lee, Jeong-Taek Son, Byeong-Chan Lee, Jong-Seong Park, Ilhun Kim, Eun-Gyu Lee, and Choul-Young Kim'},
+ {y:2025,k:'c',f:1,vc:'ims',vs:'IMS 2025',d:'10.1109/IMS40360.2025.11103820',t:'An 8-12.2 GHz CMOS Low-Noise Amplifier with Partially Tail-Coupled Transformer and Large-Transistor Achieving 1.8 dB Average NF',a:'Min-Seok Baek, Jae-Hyeok Song, Jae-Eun Lee, Jong-Seong Park, Ilhun Kim, Jeong-Taek Lim, Eun-Gyu Lee, Seong-Mo Moon, Dongpil Chang, and Choul-Young Kim'},
+ {y:2025,k:'c',f:0,vc:'apmc',vs:'APMC 2025',d:'10.1109/APMC65046.2025.11377622',t:'A Compact High-Isolation Wilkinson Power Divider Combiner for W- and D-Band with Series and Coupled Inductors',a:'Jong-Seong Park, Joon-Hyung Kim, Jae-Hyeok Song, Jae-Eun Lee, Jeong-Taek Son, Min-Seok Baek, Byeong-Chan Lee, Ilhun Kim, Eun-Gyu Lee, and Choul-Young Kim'},
+ {y:2025,k:'c',f:0,vc:'ims',vs:'IMS 2025',d:'10.1109/IMS40360.2025.11104012',t:'Broadband LNA with Dual-Resonance Matching Network with Capacitive Feedback for Improved Gain and Noise Figure Using 0.1-μm GaAs pHEMT Technology',a:'Jong-Seong Park, Jeong-Taek Son, Joon-Hyung Kim, Min-Seok Baek, Byeong-Chan Lee, Eun-Gyu Lee, Jeong-Taek Lim, Seong-Mo Moon, Dongpil Chang, and Choul-Young Kim'},
+ {y:2025,k:'c',f:0,vc:'ims',vs:'IMS 2025',d:'10.1109/IMS40360.2025.11103817',t:'A Ku-Band CMOS LNA with Symmetric Polarity-Selective Transformer for Efficient 180° Phase Shifting',a:'Jae-Hyeok Song, Jeong-Taek Lim, Jae-Eun Lee, Jeong-Taek Son, Joon-Hyung Kim, Min-Seok Baek, Eun-Gyu Lee, Seong-Mo Moon, Dongpil Chang, and Choul-Young Kim'},
+ {y:2024,k:'j',f:1,vc:'mwtl',vs:'MWTL 2024',d:'10.1109/LMWT.2023.3348529',t:'A Low-Power High-IP1dB Low-Noise Amplifier Using Large-Transistor and Class-AB Mode',a:'Min-Seok Baek, Han-Woong Choi, Joon-Hyung Kim, Jae-Hyeok Song, Jae-Eun Lee, Jeong-Taek Son, and Choul-Young Kim'},
+ {y:2024,k:'j',f:0,vc:'mwtl',vs:'MWTL 2024',d:'10.1109/LMWT.2024.3392986',t:'180° Switching-Method based on Transformer for CMOS Phase Shifter',a:'Joon-Hyung Kim, Han-Woong Choi, Min-Seok Baek, and Choul-Young Kim'},
+ {y:2024,k:'j',f:0,vc:'mwtl',vs:'MWTL 2024',d:'10.1109/LMWT.2024.3396491',t:'Compact Dual-Core Drive Stage Using Three-Winding Transformer for CMOS Broadband Power Amplifier',a:'Joon-Hyung Kim, Jeong-Taek Son, Jae-Hyeok Song, Jae-Eun Lee, Min-Seok Baek, Jeong-Taek Lim, Han-Woong Choi, Seong-Mo Moon, Dongpil Chang, and Choul-Young Kim',x:'Presented at IEEE IMS 2024'},
+ {y:2024,k:'j',f:0,vc:'mwtl',vs:'MWTL 2024',d:'10.1109/LMWT.2024.3362054',t:'A Sub-6 GHz Asymmetric GaAs SPDT Switch With High Tx-to-Rx Isolation and Low Insertion Loss',a:'Jae-Eun Lee, Jae-Hyeok Song, Min-Seok Baek, Jeong-Taek Son, Joon-Hyung Kim, Eun-Gyu Lee, Sunkyu Choi, and Choul-Young Kim'},
+ {y:2024,k:'j',f:0,vc:'mwtl',vs:'MWTL 2024',d:'10.1109/LMWT.2023.3325393',t:'Low Insertion Loss CMOS Phase Shifter for Wireless Power Transfer System',a:'Jeong-Taek Lim, Jae-Hyeok Song, Joon-Hyung Kim, Min-Seok Baek, Changkun Park, and Choul-Young Kim'},
+ {y:2024,k:'c',f:0,vc:'apmc',vs:'APMC 2024',d:'10.1109/APMC60911.2024.10867450',t:'CMOS Power Amplifiers with Symmetrical IMD3 Performance for 802.11ac 5G-band WiFi Applications',a:'Jae-Hyeok Song, Jeong-Taek Lim, Jae-Eun Lee, Jeong-Taek Son, Joon-Hyung Kim, Min-Seok Baek, Byeong-Chan Lee, Jong-Seong Park, Ilhun Kim, Eun-Gyu Lee, and Choul-Young Kim'},
+ {y:2024,k:'c',f:0,vc:'rfic',vs:'RFIC 2024',d:'10.1109/RFIC61187.2024.10599991',t:'An Efficient Ku-Band Two-Way Vertical-like Power-Combining Power Amplifier using Merged Inter-stage Transformers Achieving 23-23.4 dBm Psat and 45.2-46.6% Peak PAE in 65nm CMOS',a:'Joon-Hyung Kim, Jeong-Taek Lim, Jae-Eun Lee, Jae-Hyeok Song, Jeong-Taek Son, Min-Seok Baek, Eun-Gyu Lee, Sunkyu Choi, Han-Woong Choi, Seong-Mo Moon, Dongpil Chang, and Choul-Young Kim'},
+ {y:2023,k:'c',f:0,vc:'rfic',vs:'RFIC 2023',d:'10.1109/RFIC54547.2023.10186167',t:'High-Performance Broadband CMOS Low-Noise Amplifier with a Three-Winding Transformer for Broadband Matching',a:'Joon-Hyung Kim, Jeong-Taek Son, Jeong-Taek Lim, Jae-Eun Lee, Jae-Hyeok Song, Min-Seok Baek, Han-Woong Choi, Eun-Gyu Lee, Sunkyu Choi, Chong-Min Lee, Sung-Ku Yeo, and Choul-Young Kim'}
+];
+const chips=[
+ {n:'120-GHz radar–communication 1TX-1RX transceiver',p:'90-nm SiGe BiCMOS (GF 9HP+)',s:0,lab:'120 GHz',tx:1,rx:1},
+ {n:'120-GHz 4TX-4RX MIMO radar–communication transceiver',p:'90-nm SiGe BiCMOS (GF 9HP+)',s:0,lab:'120 GHz',tx:4,rx:4},
+ {n:'Ku-band 4TX-4RX front-end for satellite communication',p:'65-nm CMOS. Team chip; I contributed to its design.',s:1,lab:'Ku',tx:4,rx:4},
+ {n:'K/Ka-band transceiver front-end',p:'65-nm CMOS',s:1,lab:'K/Ka',tx:1,rx:1},
+ {n:'Ka-band ×6 frequency multiplier',p:'65-nm CMOS',s:1,lab:'Ka ×6',m:3},
+ {n:'X-band 4-channel TX beamformer, 7.9–8.4 GHz',p:'65-nm CMOS',s:1,lab:'X',tx:4,rx:0},
+ {n:'C-band 2TX-2RX front-end',p:'GlobalFoundries 8SW SOI',s:1,lab:'C',tx:2,rx:2},
+ {n:'5–7.2 GHz Wi-Fi 6E/7 power amplifier',p:'CMOS SOI',s:1,lab:'Wi-Fi',m:1}
 ];
 const pats=[
- ['Phase-Shifting Attenuator Using Out-of-Phase Signal Synthesis','Jae-Hyeok Song, Min-Seok Baek, Jeong-Taek Lim, Choul-Young Kim','KR 10-2880253 (2024)'],
- ['Enhancing Noise Figure of Low Noise Amplifier with Harmonic Filter Technique','Jae-Hyeok Song, Min-Seok Baek, Choul-Young Kim','KR 10-2791141 (2023); PCT/KR2023/013232'],
- ['Attenuator','Min-Seok Baek, Joon-Hyung Kim, Choul-Young Kim','KR 10-2756489 (2023)'],
- ['Amplifier Having Linearizer for Second-Harmonic Suppression','Joon-Hyung Kim, Min-Seok Baek, Choul-Young Kim','KR 10-2861628 (2023)'],
- ['Amplifier','Min-Seok Baek, Jae-Hyeok Song, Choul-Young Kim','KR 10-2791134 (2023)']
+ ['Phase-Shifting Attenuator Using Out-of-Phase Signal Synthesis','Song, Baek, Lim, Kim','KR 10-2880253'],
+ ['Enhancing Noise Figure of LNA with Harmonic Filter Technique','Song, Baek, Kim. PCT/KR2023/013232 filed','KR 10-2791141'],
+ ['Attenuator','Baek, J.-H. Kim, C.-Y. Kim','KR 10-2756489'],
+ ['Amplifier Having Linearizer for Second-Harmonic Suppression','J.-H. Kim, Baek, C.-Y. Kim','KR 10-2861628'],
+ ['Amplifier','Baek, Song, Kim','KR 10-2791134']
 ];
 const awards=[
  ['BK21 Scholarship','Ministry of Education, Korea','2022 – now'],
- ['Best Paper Award','IEIE. A Ka-band CMOS phased-array receiver for SATCOM (first author)','2023'],
- ['Best Paper Award','IEEE Daejeon Section and IEIE. CMOS high-linear PA design for 802.11ac 5-GHz Wi-Fi','2022'],
+ ['Best Paper Award','IEIE. Ka-band CMOS phased-array receiver for SATCOM, first author','2023'],
+ ['Best Paper Award','IEEE Daejeon Section and IEIE. High-linear CMOS PA for 5-GHz Wi-Fi','2022'],
  ['Outstanding Research Award','Chungnam National University','2023, 2022']
 ];
-const projects=[
- ['Millimeter-level ultra-compact radar–communication system','IITP','Jul 2024 – now'],
- ['D-band low-loss materials and high-performance beamforming modules','KEIT','Jul 2024 – now'],
- ['mm-wave single-antenna dual-polarization full-duplex radar–communication transceiver ICs','NRF','Jul 2024 – now'],
- ['Monolithic 3D III-V/CMOS RF amplifiers','NRF','Sep 2022 – Dec 2023'],
- ['High-resolution 77-GHz FMCW imaging radar module for autonomous vehicles','TIPA','Sep 2022 – 2023'],
- ['mm-wave single-antenna wideband full-duplex beamforming transceiver ICs','NRF','Sep 2022 – Feb 2024'],
- ['Terahertz Wireless System for Cooperative Intelligent Edge (TWICE) Laboratory','NRF','Sep 2022 – Feb 2024'],
- ['Transceiver FEM IC for Ku-band beamforming antennas','KIAT','Sep 2022 – Aug 2023']
-];
-const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;');
-const bold=s=>esc(s).replace(ME,'<b>'+ME+'</b>');
+const li=r=>`<li><span class="t">${esc(r[0])}</span><span class="s">${esc(r[1])}</span><span class="d">${esc(r[2])}</span></li>`;
+document.getElementById('pats').innerHTML=pats.map(li).join('');
+document.getElementById('awards').innerHTML=awards.map(li).join('');
 
-const groups=[['all','All'],['j','Journals'],['c','Conferences'],['f','First author']];
-const count=g=>pubs.filter(p=>g==='all'||(g==='f'?p.f:p.k===g)).length;
-const fEl=document.getElementById('filters'),pEl=document.getElementById('pubs');
-let cur='all';
+/* tooltip */
+const tip=document.getElementById('tip');
+const showTip=(html,e)=>{tip.innerHTML=html;tip.style.opacity=1;const r=tip.getBoundingClientRect();let x=e.clientX+14,y=e.clientY+14;if(x+r.width>innerWidth-8)x=e.clientX-r.width-14;if(y+r.height>innerHeight-8)y=e.clientY-r.height-14;tip.style.left=Math.max(8,x)+'px';tip.style.top=Math.max(8,y)+'px';};
+const hideTip=()=>{tip.style.opacity=0;};
+addEventListener('scroll',hideTip,{passive:true});
+
+/* chip dies */
+const die=c=>{
+  const W=200,H=144;let g=`<rect x="6" y="6" width="${W-12}" height="${H-12}" rx="6" fill="var(--zone)" stroke="var(--rule)" stroke-width="1.5"/>`;
+  for(let i=0;i<9;i++){g+=`<rect x="${22+i*18.5}" y="10" width="9" height="7" rx="1" fill="var(--pad)"/><rect x="${22+i*18.5}" y="${H-17}" width="9" height="7" rx="1" fill="var(--pad)"/>`;}
+  for(let i=0;i<5;i++){g+=`<rect x="10" y="${30+i*19}" width="7" height="9" rx="1" fill="var(--pad)"/><rect x="${W-17}" y="${30+i*19}" width="7" height="9" rx="1" fill="var(--pad)"/>`;}
+  const col=c.s?'var(--pru)':'var(--car)';
+  if(c.m){const n=c.m;for(let i=0;i<n;i++){const x=W/2-(n*34)/2+i*34+4;g+=`<path d="M${x} ${H/2-14}v28l24-14z" fill="var(--card)" stroke="${col}" stroke-width="2"/>`;}}
+  else{const rows=[[c.tx,'T'],[c.rx,'R']].filter(r=>r[0]);rows.forEach(([n,t],ri)=>{const y=rows.length===1?H/2-11:30+ri*48;const bw=Math.min(30,(W-70)/n-6);for(let i=0;i<n;i++){const x=W/2-(n*(bw+6))/2+i*(bw+6)+3;g+=`<rect x="${x}" y="${y}" width="${bw}" height="22" rx="3" fill="var(--card)" stroke="${col}" stroke-width="1.6"/><circle cx="${x+bw/2}" cy="${y+11}" r="5" fill="none" stroke="${col}" stroke-width="1.2"/>`;}});}
+  g+=`<text x="${W-24}" y="${H-24}" text-anchor="end" font-size="15" font-weight="700" fill="${col}" style="stroke:var(--zone)">${esc(c.lab)}</text>`;
+  return `<svg viewBox="0 0 ${W} ${H}" aria-hidden="true">${g}</svg>`;
+};
+document.getElementById('dies').innerHTML=chips.map(c=>`<article class="die">${die(c)}<span class="badge${c.s?'':' p'}">${c.s?'Measured':'Fabricated, measurement pending'}</span><h3>${esc(c.n)}</h3><p>${esc(c.p)}</p></article>`).join('');
+
+/* papers */
+const groups=[['all','All'],['f','First author'],['j','Journals'],['c','Conferences']];
+const sel=(g,p)=>g==='all'||(g==='f'?p.f:p.k===g);
+const fEl=document.getElementById('filters'),pEl=document.getElementById('pubs'),mEl=document.getElementById('more');
+let cur='all',open=false;const LIM=6;
 function renderPubs(){
-  fEl.innerHTML=groups.map(([g,l])=>`<button class="chip" type="button" id="f-${g}" aria-pressed="${g===cur}" data-g="${g}">${l}<i>${count(g)}</i></button>`).join('');
-  pEl.innerHTML=pubs.filter(p=>cur==='all'||(cur==='f'?p.f:p.k===cur)).map(p=>`<li class="pub"><span class="y">${p.y}</span><div><h3>${p.d?`<a href="https://doi.org/${p.d}">${esc(p.t)}</a>`:esc(p.t)}</h3><p class="au">${bold(p.a)}</p><p class="ve"><span class="tag">${p.k==='j'?'Journal':'Conference'}</span>${p.f?'<span class="tag first">First author</span>':''}${esc(p.v)}${p.d?` <a class="doi" href="https://doi.org/${p.d}">DOI</a>`:''}</p></div></li>`).join('');
+  fEl.innerHTML=groups.map(([g,l])=>`<button class="chip" type="button" id="f-${g}" aria-pressed="${g===cur}" data-g="${g}">${l}<i>${pubs.filter(p=>sel(g,p)).length}</i></button>`).join('');
+  const list=pubs.filter(p=>sel(cur,p)),show=open?list:list.slice(0,LIM);
+  pEl.innerHTML=show.map(p=>`<li class="pub"><span class="ven-b v-${p.vc}">${p.vs}</span><div><h3>${p.d?`<a href="https://doi.org/${p.d}">${esc(p.t)}</a>`:esc(p.t)}</h3><p class="au">${bold(p.a)}</p><p class="ex">${p.f?'<span class="first">First author</span>':''}${p.x?esc(p.x):''}</p></div></li>`).join('');
+  mEl.hidden=list.length<=LIM;mEl.textContent=open?'Show fewer':`Show all ${list.length} papers`;
 }
 fEl.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;cur=b.dataset.g;renderPubs();document.getElementById('f-'+cur).focus();});
+mEl.addEventListener('click',()=>{open=!open;renderPubs();});
 renderPubs();
 
-document.getElementById('pats').innerHTML=pats.map(r=>`<tr><td data-l="Title"><b>${esc(r[0])}</b></td><td data-l="Inventors">${bold(r[1])}</td><td class="n" data-l="Number">${esc(r[2])}</td></tr>`).join('');
-const li=r=>`<li><span class="t">${esc(r[0])}</span><span class="s">${esc(r[1])}</span><span class="d">${esc(r[2])}</span></li>`;
-document.getElementById('awards').innerHTML=awards.map(li).join('');
-document.getElementById('projects').innerHTML=projects.map(r=>li([r[0],r[1],r[2]])).join('');
-
+/* frequency map */
 const bands=[['C',4,8],['X',8,12],['Ku',12,18],['K',18,27],['Ka',27,40],['V',40,75],['W',75,110],['D',110,170]];
 const rows=[
- {l:'Wi-Fi PA with symmetrical IMD3',s:'5-GHz Wi-Fi PA',v:'APMC 2024',a:5.15,b:5.85,h:0},
+ {l:'Wi-Fi PA with symmetrical IMD3',s:'5-GHz Wi-Fi PA',v:'APMC 2024',a:5.15,b:5.85,d:'10.1109/APMC60911.2024.10867450'},
  {l:'Wi-Fi 6E/7 PA in CMOS SOI',s:'Wi-Fi 6E/7 PA',v:'measured',a:5,b:7.2,u:1},
  {l:'X-band 4-channel TX beamformer',s:'X-band TX beamformer',v:'measured',a:7.9,b:8.4,u:1},
- {l:'X-band LNA, 1.8 dB average NF',s:'X-band LNA, 1.8 dB NF',v:'IMS 2025, TCAS-II',a:8,b:12.2,h:0},
- {l:'FR3 LNA, −5.3 to −2.4 dBm IP1dB',s:'FR3 LNA, high IP1dB',v:'RFIC 2026',a:10,b:19.2,h:0},
- {l:'Ku-band LNA with 180° phase shifting',s:'Ku-band LNA, 180°',v:'IMS 2025',a:12,b:18,h:1},
- {l:'Ku-band PA, 23–23.4 dBm Psat',s:'Ku-band PA',v:'RFIC 2024',a:12,b:18,h:1},
- {l:'LNA with integrated 180° phase shifting',s:'LNA with 180° shift',v:'APMC 2025',a:21.5,b:35.5,h:0},
- {l:'Wilkinson divider/combiner',s:'Wilkinson divider',v:'APMC 2025',a:75,b:170,h:1},
+ {l:'X-band LNA, 1.8 dB average NF',s:'X-band LNA, 1.8 dB NF',v:'IMS 2025, TCAS-II',a:8,b:12.2,d:'10.1109/IMS40360.2025.11103820'},
+ {l:'FR3 LNA, −5.3 to −2.4 dBm IP1dB',s:'FR3 LNA, high IP1dB',v:'RFIC 2026',a:10,b:19.2,d:'10.1109/RFIC70222.2026.11602222'},
+ {l:'Ku-band LNA with 180° phase shifting',s:'Ku-band LNA, 180°',v:'IMS 2025',a:12,b:18,h:1,d:'10.1109/IMS40360.2025.11103817'},
+ {l:'Ku-band PA, 23–23.4 dBm Psat',s:'Ku-band PA',v:'RFIC 2024',a:12,b:18,h:1,d:'10.1109/RFIC61187.2024.10599991'},
+ {l:'LNA with integrated 180° phase shifting',s:'LNA with 180° shift',v:'APMC 2025',a:21.5,b:35.5,d:'10.1109/APMC65046.2025.11378707'},
+ {l:'Wilkinson divider/combiner',s:'Wilkinson divider',v:'APMC 2025',a:75,b:170,h:1,d:'10.1109/APMC65046.2025.11377622'},
  {l:'120-GHz radar–communication TRx, 1×1 and 4×4 MIMO',s:'120-GHz RadCom TRx',v:'fabricated',a:116,b:123,u:1},
- {l:'SiGe PA, 34 dB gain',s:'SiGe PA, 34 dB gain',v:'RFIC 2026',a:125,b:150,h:0}
+ {l:'SiGe PA, 34 dB gain',s:'SiGe PA, 34 dB gain',v:'RFIC 2026',a:125,b:150,d:'10.1109/RFIC70222.2026.11602350'}
 ];
-const s=document.getElementById('spec');
-const draw=()=>{
-  const W=s.clientWidth,H=s.clientHeight;if(!W||!H)return;
+const sp=document.getElementById('spec');
+const drawSpec=()=>{
+  const W=sp.clientWidth,H=sp.clientHeight;if(!W||!H)return;
   const nar=W<560,mL=4,mR=4,mT=30,mB=36,lo=4,hi=180;
   const x=f=>mL+Math.log(f/lo)/Math.log(hi/lo)*(W-mL-mR);
-  const rh=(H-mT-mB)/rows.length,bh=nar?9:12;
+  const rh=(H-mT-mB)/rows.length,bh=nar?10:14;
   let o=`<defs><pattern id="hat" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="2.2" height="6" fill="var(--car)"/></pattern></defs>`;
-  bands.forEach(([n,a,b],i)=>{const x1=x(a),x2=x(b);o+=`<rect x="${x1}" y="${mT-6}" width="${x2-x1}" height="${H-mT-mB+6}" fill="${i%2?'var(--bg)':'var(--zone)'}"/>`;if(x2-x1>16)o+=`<text x="${(x1+x2)/2}" y="${mT-12}" text-anchor="middle" font-size="13" font-weight="600" fill="var(--mut)">${n}</text>`;});
+  bands.forEach(([n,a,b],i)=>{const x1=x(a),x2=x(b);o+=`<rect x="${x1}" y="${mT-6}" width="${x2-x1}" height="${H-mT-mB+6}" fill="${i%2?'transparent':'var(--zone)'}"/>`;if(x2-x1>16)o+=`<text x="${(x1+x2)/2}" y="${mT-12}" text-anchor="middle" font-size="13" font-weight="700" fill="var(--mut)">${n}</text>`;});
   [5,10,20,50,100,150].forEach(t=>{const X=x(t);o+=`<line x1="${X}" x2="${X}" y1="${mT-6}" y2="${H-mB}" stroke="var(--rule)"/>`;if(!(nar&&t===150))o+=`<text x="${X}" y="${H-mB+20}" text-anchor="middle" font-size="13" fill="var(--mut)">${t}${t===150&&!nar?' GHz':''}</text>`;});
   o+=`<line x1="${mL}" x2="${W-mR}" y1="${H-mB}" y2="${H-mB}" stroke="var(--ink)"/>`;
   if(nar)o+=`<text x="${W-mR}" y="${H-mB+20}" text-anchor="end" font-size="13" fill="var(--mut)">GHz</text>`;
   rows.forEach((r,i)=>{
-    const cy=mT+rh*i+rh/2,x1=x(r.a),x2=x(r.b),w=Math.max(x2-x1,9);
-    const yb=nar?cy+4:cy-bh/2;
-    o+=r.u?`<rect class="bar" x="${x1+0.75}" y="${yb+0.75}" width="${w-1.5}" height="${bh-1.5}" rx="2" fill="none" stroke="var(--pru)" stroke-width="1.5" stroke-dasharray="4 3" style="animation-delay:${i*60}ms"/>`:`<rect class="bar" x="${x1}" y="${yb}" width="${w}" height="${bh}" rx="2" fill="${r.h?'url(#hat)':'var(--car)'}" stroke="var(--car)" stroke-width="${r.h?1:0}" style="animation-delay:${i*60}ms"/>`;
-    const lab=nar?`${esc(r.s)}`:`${esc(r.l)}`;
-    const ven=`<tspan fill="var(--mut)" font-weight="400"> ${esc(r.v)}</tspan>`;
-    const est=((nar?r.s:r.l).length+r.v.length+1)*7.4;
+    const top=mT+rh*i,cy=top+rh/2,x1=x(r.a),x2=x(r.b),w=Math.max(x2-x1,10);
+    const yb=nar?cy+3:cy-bh/2;
+    let g=`<rect class="hit" x="${mL}" y="${top}" width="${W-mL-mR}" height="${rh}" fill="transparent"/>`;
+    g+=r.u?`<rect class="bar" x="${x1+.75}" y="${yb+.75}" width="${w-1.5}" height="${bh-1.5}" rx="3" fill="var(--ptint)" stroke="var(--pru)" stroke-width="1.5" stroke-dasharray="4 3" style="animation-delay:${i*60}ms"/>`:`<rect class="bar" x="${x1}" y="${yb}" width="${w}" height="${bh}" rx="3" fill="${r.h?'url(#hat)':'var(--car)'}" stroke="var(--car)" stroke-width="${r.h?1:0}" style="animation-delay:${i*60}ms"/>`;
+    const lab=nar?r.s:r.l,est=(lab.length+r.v.length+1)*7.4;
     let right,tx;
     if(nar){right=x1+est<=W-mR;tx=right?Math.max(x1,mL):Math.max(Math.min(x2,W-mR),est+mL);}
     else{right=x2+10+est<=W-mR;tx=right?x2+10:x1-10;}
-    const ty=nar?cy-4:cy+5;
-    o+=`<text x="${tx}" y="${ty}" text-anchor="${right?'start':'end'}" font-size="14" font-weight="600" fill="var(--ink)">${lab}${ven}</text>`;
+    g+=`<text x="${tx}" y="${nar?cy-4:cy+5}" text-anchor="${right?'start':'end'}" font-size="14" font-weight="600" fill="var(--ink)">${esc(lab)}<tspan fill="${r.u?'var(--pru)':'var(--mut)'}" font-weight="${r.u?600:400}"> ${esc(r.v)}</tspan></text>`;
+    o+=`<g class="row" data-i="${i}" tabindex="0" role="${r.d?'link':'img'}" aria-label="${esc(r.l+', '+r.v)}">${g}</g>`;
   });
-  s.innerHTML=o;
+  sp.innerHTML=o;
 };
-new ResizeObserver(draw).observe(s);draw();
+const fmt=f=>f>=100?f.toFixed(0):String(f);
+sp.addEventListener('mousemove',e=>{const g=e.target.closest('.row');if(!g){hideTip();return;}const r=rows[g.dataset.i];showTip(`<b>${esc(r.l)}</b>${fmt(r.a)}–${fmt(r.b)} GHz${r.h?' (band)':''} · ${esc(r.v)}${r.d?'<br>Click to open the paper':''}`,e);});
+sp.addEventListener('mouseleave',hideTip);
+sp.addEventListener('click',e=>{const g=e.target.closest('.row');if(!g)return;const r=rows[g.dataset.i];if(r.d&&matchMedia('(hover:hover)').matches){location.href='https://doi.org/'+r.d;return;}showTip(`<b>${esc(r.l)}</b>${fmt(r.a)}–${fmt(r.b)} GHz · ${esc(r.v)}${r.d?`<br>Tap again to open the paper`:''}`,e);if(r.d){if(g.dataset.armed){location.href='https://doi.org/'+r.d;}else{sp.querySelectorAll('[data-armed]').forEach(n=>delete n.dataset.armed);g.dataset.armed=1;}}});
+sp.addEventListener('keydown',e=>{if(e.key==='Enter'){const g=e.target.closest('.row');if(g&&rows[g.dataset.i].d)location.href='https://doi.org/'+rows[g.dataset.i].d;}});
+new ResizeObserver(drawSpec).observe(sp);drawSpec();
+
+/* timeline */
+const lanes=[['Education',0],['Research visits',1],['Funded projects',2],['Papers',3]];
+const tlItems=[
+ {l:0,a:2016.17,b:2022.12,t:'B.S., Electronics Engineering, CNU',sh:'B.S., CNU',c:'var(--mut)'},
+ {l:0,a:2022.67,b:2026.95,t:'Integrated M.S.–Ph.D., CNU',sh:'M.S.–Ph.D., CNU',c:'var(--car)',open:1},
+ {l:1,a:2024.67,b:2024.75,t:'UC San Diego, Sep 2024',c:'var(--pru)'},
+ {l:1,a:2026.42,b:2026.58,t:'UC San Diego, Jun–Jul 2026',c:'var(--pru)'}
+];
+const projs=[['Ku-band FEM IC (KIAT)',2022.67,2023.67],['77-GHz FMCW imaging radar (TIPA)',2022.67,2023.99],['Monolithic 3D III-V/CMOS RF amplifiers (NRF)',2022.67,2023.99],['Wideband full-duplex beamforming TRx ICs (NRF)',2022.67,2024.16],['TWICE terahertz laboratory (NRF)',2022.67,2024.16],['Dual-polarization full-duplex RadCom TRx ICs (NRF)',2024.5,2026.95],['D-band beamforming modules (KEIT)',2024.5,2026.95],['Ultra-compact radar–communication system (IITP)',2024.5,2026.95]];
+const tl=document.getElementById('tl');
+const drawTl=()=>{
+  const W=tl.clientWidth,H=tl.clientHeight;if(!W||!H)return;
+  const nar=W<600,lw=nar?0:150,mR=12,y0=nar?20:10,a0=2016,a1=2027;
+  const x=t=>lw+(t-a0)/(a1-a0)*(W-lw-mR);
+  const lh=[46,46,nar?96:84,nar?92:84],ly=[];let acc=y0+(nar?16:0);lh.forEach(h=>{ly.push(acc);acc+=h+(nar?22:10);});
+  let o='';
+  for(let yr=a0;yr<=a1;yr++){const X=x(yr);o+=`<line x1="${X}" x2="${X}" y1="${y0}" y2="${acc-6}" stroke="var(--rule)"/>`;if(!nar||yr%2===0)o+=`<text x="${X}" y="${acc+12}" text-anchor="middle" font-size="13" fill="var(--mut)">${yr}</text>`;}
+  lanes.forEach(([n,i])=>{o+=nar?`<text x="0" y="${ly[i]-6}" font-size="13" font-weight="700" fill="var(--mut)">${n}</text>`:`<text x="0" y="${ly[i]+lh[i]/2+5}" font-size="14" font-weight="600" fill="var(--ink)">${n}</text>`;});
+  tlItems.forEach(it=>{const y=ly[it.l]+lh[it.l]/2-9,x1=x(it.a),w=Math.max(x(it.b)-x1,16);o+=`<g class="tt" data-t="${esc(it.t)}"><rect x="${x1}" y="${y}" width="${w}" height="18" rx="${Math.min(9,w/2)}" fill="${it.c}" opacity="${it.c==='var(--mut)'?.55:1}"/>${it.open?`<path d="M${x1+w} ${y+9}l8 0" stroke="${it.c}" stroke-width="2" stroke-dasharray="2 2"/>`:''}</g>`;const lt=(it.t.length*6.9+20<w)?it.t:(it.sh&&it.sh.length*6.9+20<w?it.sh:'');if(lt)o+=`<text x="${x1+10}" y="${y+13.5}" font-size="12.5" font-weight="600" fill="#fff" style="stroke:none">${esc(lt)}</text>`;if(!lt&&it.l===1&&!nar)o+=`<text x="${x1+w/2}" y="${y-5}" text-anchor="middle" font-size="12.5" font-weight="600" fill="var(--pru)">UCSD</text>`;});
+  const ph=(lh[2]-8)/projs.length;
+  projs.forEach((p,i)=>{const y=ly[2]+4+i*ph,x1=x(p[1]);o+=`<g class="tt" data-t="${esc(p[0])}"><rect x="${x1}" y="${y}" width="${x(p[2])-x1}" height="${Math.max(ph-3,4)}" rx="3" fill="var(--pru)" opacity="${.45+.07*i}"/></g>`;});
+  const by={};pubs.forEach(p=>{(by[p.y]=by[p.y]||[]).push(p);});
+  Object.keys(by).forEach(yr=>{const L=by[yr];L.sort((a,b)=>b.f-a.f);const yw=x(+yr+1)-x(+yr),r=Math.max(3.5,Math.min(6,yw/10)),per=Math.max(2,Math.floor((yw-6)/(r*2+2))),cx0=x(+yr+0.5);L.forEach((p,j)=>{const col=j%per,rowi=Math.floor(j/per);const cx=cx0+(col-(Math.min(L.length,per)-1)/2)*(r*2+2),cy=ly[3]+lh[3]-r-2-rowi*(r*2+3);o+=`<g class="tt" data-t="${esc(p.vs+(p.f?', first author':'')+': '+p.t)}"><circle cx="${cx}" cy="${cy}" r="${r}" fill="${p.f?'var(--car)':'var(--bg)'}" stroke="var(--car)" stroke-width="1.6"/></g>`;});});
+  o+=`<text x="${W-mR}" y="${ly[3]+12}" text-anchor="end" font-size="12.5" fill="var(--mut)"><tspan fill="var(--car)">●</tspan> first author  <tspan fill="var(--car)">○</tspan> co-author</text>`;
+  tl.innerHTML=o;
+};
+tl.addEventListener('mousemove',e=>{const g=e.target.closest('.tt');if(!g){hideTip();return;}showTip(esc(g.dataset.t),e);});
+tl.addEventListener('mouseleave',hideTip);
+tl.addEventListener('click',e=>{const g=e.target.closest('.tt');if(g)showTip(esc(g.dataset.t),e);else hideTip();});
+new ResizeObserver(drawTl).observe(tl);drawTl();
 }
 </script>
 </body>
