@@ -79,7 +79,7 @@ a.card:hover{transform:translateY(-3px);border-color:var(--car)}
 .card .what{font-weight:600;font-size:15.5px;line-height:1.35}
 .card .ven{margin-top:auto;font-size:13.5px;color:var(--mut)}
 .card .ven b{color:var(--car);font-weight:600}
-.fig{position:relative;height:520px;margin-top:20px}
+.fig{position:relative;height:660px;margin-top:20px}
 .fig>svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
 svg text{font-family:Inter,sans-serif;paint-order:stroke;stroke:var(--bg);stroke-width:4px;stroke-linejoin:round}
 .alt svg text{stroke:var(--zone)}
@@ -141,7 +141,7 @@ svg text{font-family:Inter,sans-serif;paint-order:stroke;stroke:var(--bg);stroke
 footer{padding:20px max(5vw,16px);font-size:14px;color:var(--mut)}
 @media(max-width:1000px){.hl,.grid4,.dies{grid-template-columns:repeat(2,minmax(0,1fr))}.news{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:820px){.hero,.cols,.contact .grid{grid-template-columns:minmax(0,1fr)}}
-@media(max-width:600px){.who{flex-direction:column;align-items:flex-start;gap:16px}.hl,.grid4{grid-template-columns:minmax(0,1fr)}.dies{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.die{padding:12px}.fig{height:640px}.pub{grid-template-columns:minmax(0,1fr)}.tl{height:430px}nav .links{gap:0 14px}nav .links a{font-size:14px}nav .links a.opt{display:none}.news{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:600px){.who{flex-direction:column;align-items:flex-start;gap:16px}.hl,.grid4{grid-template-columns:minmax(0,1fr)}.dies{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.die{padding:12px}.fig{height:830px}.pub{grid-template-columns:minmax(0,1fr)}.tl{height:430px}nav .links{gap:0 14px}nav .links a{font-size:14px}nav .links a.opt{display:none}.news{grid-template-columns:minmax(0,1fr)}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.bar{animation:none!important}.card,.stat{transition:none}}
 @keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
 .bar{transform-box:fill-box;transform-origin:left center;animation:grow .7s ease-out both}
@@ -410,12 +410,16 @@ const bands=[['C',4,8],['X',8,12],['Ku',12,18],['K',18,27],['Ka',27,40],['V',40,
 const rows=[
  {l:'Wi-Fi PA with symmetrical IMD3',s:'5-GHz Wi-Fi PA',v:'APMC 2024',a:5.15,b:5.85,d:'10.1109/APMC60911.2024.10867450'},
  {l:'Wi-Fi 6E/7 PA in CMOS SOI',s:'Wi-Fi 6E/7 PA',v:'measured',a:5,b:7.2,u:1},
+ {l:'C-band 2TX-2RX front-end',s:'C-band 2TX-2RX',v:'measured',a:5,b:7,u:1},
  {l:'X-band 4-channel TX beamformer',s:'X-band TX beamformer',v:'measured',a:7.9,b:8.4,u:1},
  {l:'X-band LNA, 1.8 dB average NF',s:'X-band LNA, 1.8 dB NF',v:'IMS 2025, TCAS-II',a:8,b:12.2,d:'10.1109/IMS40360.2025.11103820'},
  {l:'FR3 LNA, −5.3 to −2.4 dBm IP1dB',s:'FR3 LNA, high IP1dB',v:'RFIC 2026',a:10,b:19.2,d:'10.1109/RFIC70222.2026.11602222'},
+ {l:'Ku-band SATCOM 4TX-4RX, down- and uplink',s:'Ku SATCOM 4TX-4RX',v:'measured, team chip',a:10,b:15,u:1,segs:[[10,12,'downlink (RX)'],[13,15,'uplink (TX)']]},
  {l:'Ku-band LNA with 180° phase shifting',s:'Ku-band LNA, 180°',v:'IMS 2025',a:12,b:18,h:1,d:'10.1109/IMS40360.2025.11103817'},
  {l:'Ku-band PA, 23–23.4 dBm Psat',s:'Ku-band PA',v:'RFIC 2024',a:12,b:18,h:1,d:'10.1109/RFIC61187.2024.10599991'},
+ {l:'K/Ka-band SATCOM TRx, down- and uplink',s:'K/Ka SATCOM TRx',v:'measured',a:17,b:30,u:1,segs:[[17,21,'downlink (RX)'],[27,30,'uplink (TX)']]},
  {l:'LNA with integrated 180° phase shifting',s:'LNA with 180° shift',v:'APMC 2025',a:21.5,b:35.5,d:'10.1109/APMC65046.2025.11378707'},
+ {l:'Ka-band ×6 multiplier, 30-GHz output',s:'Ka ×6 multiplier, 30 GHz',v:'measured',a:30,b:30,u:1},
  {l:'Wilkinson divider/combiner',s:'Wilkinson divider',v:'APMC 2025',a:75,b:170,h:1,d:'10.1109/APMC65046.2025.11377622'},
  {l:'120-GHz radar–communication TRx, 1×1 and 4×4 MIMO',s:'120-GHz RadCom TRx',v:'fabricated',a:116,b:123,u:1},
  {l:'SiGe PA, 34 dB gain',s:'SiGe PA, 34 dB gain',v:'RFIC 2026',a:125,b:150,d:'10.1109/RFIC70222.2026.11602350'}
@@ -432,10 +436,11 @@ const drawSpec=()=>{
   o+=`<line x1="${mL}" x2="${W-mR}" y1="${H-mB}" y2="${H-mB}" stroke="var(--ink)"/>`;
   if(nar)o+=`<text x="${W-mR}" y="${H-mB+20}" text-anchor="end" font-size="13" fill="var(--mut)">GHz</text>`;
   rows.forEach((r,i)=>{
-    const top=mT+rh*i,cy=top+rh/2,x1=x(r.a),x2=x(r.b),w=Math.max(x2-x1,10);
+    const top=mT+rh*i,cy=top+rh/2,segs=r.segs||[[r.a,r.b]];let x1=x(r.a),x2=x(r.b);if(x2-x1<10){const c=(x1+x2)/2;x1=c-5;x2=c+5;}
     const yb=nar?cy+3:cy-bh/2;
     let g=`<rect class="hit" x="${mL}" y="${top}" width="${W-mL-mR}" height="${rh}" fill="transparent"/>`;
-    g+=r.u?`<rect class="bar" x="${x1+.75}" y="${yb+.75}" width="${w-1.5}" height="${bh-1.5}" rx="3" fill="var(--ptint)" stroke="var(--pru)" stroke-width="1.5" stroke-dasharray="4 3" style="animation-delay:${i*60}ms"/>`:`<rect class="bar" x="${x1}" y="${yb}" width="${w}" height="${bh}" rx="3" fill="${r.h?'url(#hat)':'var(--car)'}" stroke="var(--car)" stroke-width="${r.h?1:0}" style="animation-delay:${i*60}ms"/>`;
+    segs.forEach(([a,b])=>{let s1=x(a),s2=x(b);if(s2-s1<10){const c=(s1+s2)/2;s1=c-5;s2=c+5;}const w=s2-s1;
+      g+=r.u?`<rect class="bar" x="${s1+.75}" y="${yb+.75}" width="${w-1.5}" height="${bh-1.5}" rx="3" fill="var(--ptint)" stroke="var(--pru)" stroke-width="1.5" stroke-dasharray="4 3" style="animation-delay:${i*60}ms"/>`:`<rect class="bar" x="${s1}" y="${yb}" width="${w}" height="${bh}" rx="3" fill="${r.h?'url(#hat)':'var(--car)'}" stroke="var(--car)" stroke-width="${r.h?1:0}" style="animation-delay:${i*60}ms"/>`;});
     const lab=nar?r.s:r.l,est=(lab.length+r.v.length+1)*7.4;
     let right,tx;
     if(nar){right=x1+est<=W-mR;tx=right?Math.max(x1,mL):Math.max(Math.min(x2,W-mR),est+mL);}
@@ -446,9 +451,10 @@ const drawSpec=()=>{
   sp.innerHTML=o;
 };
 const fmt=f=>f>=100?f.toFixed(0):String(f);
-sp.addEventListener('mousemove',e=>{const g=e.target.closest('.row');if(!g){hideTip();return;}const r=rows[g.dataset.i];showTip(`<b>${esc(r.l)}</b>${fmt(r.a)}–${fmt(r.b)} GHz${r.h?' (band)':''} · ${esc(r.v)}${r.d?'<br>Click to open the paper':''}`,e);});
+const rng=r=>r.segs?r.segs.map(([a,b,t])=>`${fmt(a)}–${fmt(b)} GHz ${t}`).join('<br>'):(r.a===r.b?`${fmt(r.a)} GHz`:`${fmt(r.a)}–${fmt(r.b)} GHz`)+(r.h?' (band)':'');
+sp.addEventListener('mousemove',e=>{const g=e.target.closest('.row');if(!g){hideTip();return;}const r=rows[g.dataset.i];showTip(`<b>${esc(r.l)}</b>${rng(r)}<br>${esc(r.v)}${r.d?'<br>Click to open the paper':''}`,e);});
 sp.addEventListener('mouseleave',hideTip);
-sp.addEventListener('click',e=>{const g=e.target.closest('.row');if(!g)return;const r=rows[g.dataset.i];if(r.d&&matchMedia('(hover:hover)').matches){location.href='https://doi.org/'+r.d;return;}showTip(`<b>${esc(r.l)}</b>${fmt(r.a)}–${fmt(r.b)} GHz · ${esc(r.v)}${r.d?`<br>Tap again to open the paper`:''}`,e);if(r.d){if(g.dataset.armed){location.href='https://doi.org/'+r.d;}else{sp.querySelectorAll('[data-armed]').forEach(n=>delete n.dataset.armed);g.dataset.armed=1;}}});
+sp.addEventListener('click',e=>{const g=e.target.closest('.row');if(!g)return;const r=rows[g.dataset.i];if(r.d&&matchMedia('(hover:hover)').matches){location.href='https://doi.org/'+r.d;return;}showTip(`<b>${esc(r.l)}</b>${rng(r)}<br>${esc(r.v)}${r.d?`<br>Tap again to open the paper`:''}`,e);if(r.d){if(g.dataset.armed){location.href='https://doi.org/'+r.d;}else{sp.querySelectorAll('[data-armed]').forEach(n=>delete n.dataset.armed);g.dataset.armed=1;}}});
 sp.addEventListener('keydown',e=>{if(e.key==='Enter'){const g=e.target.closest('.row');if(g&&rows[g.dataset.i].d)location.href='https://doi.org/'+rows[g.dataset.i].d;}});
 new ResizeObserver(drawSpec).observe(sp);drawSpec();
 
